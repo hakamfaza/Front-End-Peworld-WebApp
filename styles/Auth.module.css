@@ -106,7 +106,7 @@
 
 .btn {
   background-color: rgba(251, 176, 23, 1);
-  padding: 5px;
+  padding: 8px;
   color: rgba(255, 255, 255, 1);
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   border: none;
@@ -115,7 +115,7 @@
 
 .btnRegister{
   background-color: rgba(251, 176, 23, 1);
-  padding: 5px;
+  padding: 8px;
   color: rgba(255, 255, 255, 1);
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   border: none;
