@@ -27,7 +27,7 @@
 }
 
 .relative {
-  position: relative;
+  position: fixed;
 }
 
 .logo {
@@ -54,6 +54,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 950px;
+}
+
+.formLogin {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 600px;
 }
 
@@ -71,18 +79,6 @@
   font-size: 16px;
 }
 
-.input {
-  width: 100%;
-  padding: 7px 15px;
-  border-radius: 3px;
-  border: rgba(226, 229, 237, 1) 1px solid;
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.input:focus {
-  outline: none;
-}
-
 .containerForm {
   display: flex;
   flex-direction: column;
@@ -91,16 +87,6 @@
 .label {
   font-size: medium;
   color: red;
-}
-
-.boxForm {
-  margin-top: 30px;
-}
-
-.textForm {
-  color: rgba(158, 160, 165, 1);
-  margin-bottom: 2px;
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .forgot {
@@ -117,6 +103,15 @@
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   border: none;
   margin-top: 20px;
+}
+
+.btnRegister{
+  background-color: rgba(251, 176, 23, 1);
+  padding: 5px;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  border: none;
+  margin-top: 50px;
 }
 
 .to {
