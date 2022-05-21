@@ -57,6 +57,14 @@
   height: 950px;
 }
 
+.formWorker{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 800px;
+}
+
 .formLogin {
   padding: 20px;
   display: flex;
