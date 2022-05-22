@@ -2,9 +2,12 @@ import React from "react";
 import Card from "../../compoents/Card";
 import styles from '../../styles/List.module.css'
 import {AiOutlineSearch} from 'react-icons/ai'
+import Navbar from "../../compoents/Navbar";
 
 export default function listUser() {
   return (
+    <>
+    <Navbar/>
     <div className="container-fluid">
       <div className={styles.container} >
         <div className={styles.boxSearch}>
@@ -36,6 +39,7 @@ export default function listUser() {
       </ul>
       </nav>
       </div>
-    </div>
+      </div>
+      </>
   )
 }

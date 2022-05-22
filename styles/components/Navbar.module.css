@@ -1,0 +1,25 @@
+.logo {
+  margin: 5px 90px;
+}
+
+.boxSide {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  justify-content: space-between;
+  margin-right: 70px;
+}
+
+.notif {
+  font-size: 24px;
+  color: rgba(155, 155, 155, 1);
+}
+
+.mail {
+  font-size: 24px;
+  color: rgba(155, 155, 155, 1);
+}
+
+.profile {
+  border-radius: 20px;
+}
