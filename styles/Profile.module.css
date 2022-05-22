@@ -1,0 +1,129 @@
+.container {
+  position: relative;
+  background-color: #E5E5E5;
+  height: 150vh;
+}
+
+.divOne {
+  background-color: rgba(94, 80, 161, 1);
+  width: 100%;
+  height: 200px;
+}
+
+.boxProfile {
+  position: absolute;
+  top: 50px;
+  width: 80%;
+}
+
+.boxInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color:rgba(255, 255, 255, 1);
+  padding: 50px 15px;
+}
+
+.profile {
+  object-fit: cover;
+  border-radius: 75px;
+  margin-left: 30px;
+}
+
+.name {
+  color: rgba(31, 42, 54, 1);
+  font-size: 22px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.textLocation {
+  color:rgba(158, 160, 165, 1);
+  margin-top: 15px;
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+.profession {
+  color: rgba(31, 42, 54, 1);
+  font-size: 14px;
+  margin-top: -5px;
+}
+
+.job {
+  font-size: 14px;
+  color: rgba(158, 160, 165, 1);
+}
+
+.description {
+  color: rgba(158, 160, 165, 1);
+  font-size: 14px;
+}
+
+.btn {
+  background-color: rgba(94, 80, 161, 1);
+  color: #FFF;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  margin-top: 25px;
+}
+
+.titleSkill {
+  margin-top: 30px;
+  color: rgba(31, 42, 54, 1);
+  font-size: 22px;
+}
+
+.icon {
+  font-size: 22px;
+  color: rgba(155, 155, 155, 1);
+  margin-right: 15px;
+}
+
+.contactTop {
+  margin-top: 50px;
+  display: flex;
+}
+
+
+.contact {
+  display: flex;
+  margin-top: 10px;
+}
+
+.textContact {
+  color: rgba(158, 160, 165, 1);
+}
+
+.boxPortfolio {
+  padding: 15px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.titleAction {
+  color: rgba(31, 42, 54, 1);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.containerPorto {
+  margin-top: 20px;
+}
+
+.boxPorto {
+  position: relative;
+  padding: 5px;
+}
+
+.textPorto {
+  text-align: center;
+}

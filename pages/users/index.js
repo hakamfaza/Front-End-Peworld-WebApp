@@ -8,7 +8,6 @@ import Footer from "../../compoents/Footer";
 export default function listUser() {
   return (
     <>
-    <Navbar/>
       <div>
         <h1 className={styles.top} >
           Top Jobs
