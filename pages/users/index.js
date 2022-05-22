@@ -3,6 +3,7 @@ import Card from "../../compoents/Card";
 import styles from '../../styles/List.module.css'
 import {AiOutlineSearch} from 'react-icons/ai'
 import Navbar from "../../compoents/Navbar";
+import Footer from "../../compoents/Footer";
 
 export default function listUser() {
   return (
@@ -40,6 +41,7 @@ export default function listUser() {
       </nav>
       </div>
       </div>
+      <Footer/>
       </>
   )
 }
