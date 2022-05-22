@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'next/image'
-import styles from '../../styles/ListUser.module.css'
+import styles from '../../styles/components/Card.module.css'
 
 export default function Card(params) {
   return (
@@ -8,11 +8,11 @@ export default function Card(params) {
         <div className="row">
           <div className="col-md-2">
             <div className={styles.boxImage}>
-              <Image src="/nial.jpg" width={130} height={130} className={styles.user}/>
+              <Image src="/nial.jpg" width={80} height={80} className={styles.user}/>
             </div>
           </div>
           <div className="col-md-7">
-            <div>
+            <div className= {styles.info}>
             <h3 className={styles.name} >{params.name}</h3>
             <h6 className={styles.titleProfession}>{ params.proffesion}</h6>
               <div className={styles.location} >
