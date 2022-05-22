@@ -9,6 +9,11 @@ export default function listUser() {
   return (
     <>
     <Navbar/>
+      <div>
+        <h1 className={styles.top} >
+          Top Jobs
+        </h1>
+      </div>
     <div className="container-fluid">
       <div className={styles.container} >
         <div className={styles.boxSearch}>
