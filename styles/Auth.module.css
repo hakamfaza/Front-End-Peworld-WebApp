@@ -1,0 +1,137 @@
+.container {
+  padding: 44px 50px !important;
+  background-color: #E5E5E5;
+}
+
+.bgImage {
+  object-fit: cover;
+  position: relative;
+}
+
+.bgImage::after {
+  content: "";
+  background-color: rgba(94, 80, 161, 0.7);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 600px;
+  width: 600px;
+}
+
+.image {
+  position: absolute;
+  margin-top: -20px;
+  display: none;
+}
+
+.relative {
+  position: fixed;
+}
+
+.logo {
+  position: absolute !important;
+  top: 40px;
+  left: 40px;
+  z-index: 10;
+}
+
+.title {
+  position: absolute;
+  color: #fff;
+  top: 25%;
+  left: 100px;
+  max-width: 430px;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 44px;
+  font-weight: bold;
+  line-height: 70px;
+}
+
+.form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 950px;
+}
+
+.formWorker{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 800px;
+}
+
+.formLogin {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 600px;
+}
+
+.formTitle {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgba(31, 42, 54, 1);
+}
+
+.formText {
+  max-width: 600px;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgba(70, 80, 92, 1);
+  font-size: 16px;
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: medium;
+  color: red;
+}
+
+.forgot {
+  cursor: pointer;
+  text-align: end;
+  margin-top: 20px;
+  color: rgba(31, 42, 54, 1);
+}
+
+.btn {
+  background-color: rgba(251, 176, 23, 1);
+  padding: 8px;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  border: none;
+  margin-top: 20px;
+}
+
+.btnRegister{
+  background-color: rgba(251, 176, 23, 1);
+  padding: 8px;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  border: none;
+  margin-top: 50px;
+}
+
+.to {
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toPage {
+  color: rgba(251, 176, 23, 1);
+  margin-left: 5px;
+  cursor: pointer;
+}
