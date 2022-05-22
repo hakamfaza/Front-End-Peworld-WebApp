@@ -7,7 +7,7 @@ import {IoMdNotificationsOutline} from 'react-icons/io'
 
 export default function Navbar() {
   return (
-    <div>
+    <div >
       <nav className="navbar shadow-sm">
         <div className="container-fluid">
           <Link href='/' >
