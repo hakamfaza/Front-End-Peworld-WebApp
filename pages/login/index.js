@@ -28,7 +28,9 @@ export default function index() {
     }
     axios.post('https://peworld.herokuapp.com/login', body, {}).then((res) => {
       const token = res.data.token.jwt
+      const id = res.data.token.id
       document.cookie = `token=${token};path/`
+      document.cookie = `id=${id};path/`
       router.push('/profile')
     }).catch((err) => {
       console.log(err.message)

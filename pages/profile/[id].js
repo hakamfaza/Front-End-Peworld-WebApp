@@ -11,8 +11,8 @@ import Experience from "../../compoents/Card/experience";
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies
+  
   const fetchApi = async () => {
-
     const { id } = context.params
     console.log(id)
     try {
@@ -36,38 +36,20 @@ export async function getServerSideProps(context) {
     }
   }
 
-  const fetchApiTwo = async () =>  {
-    try {
-      const response = await axios({
-        url: "https://jsonplaceholder.typicode.com/users",
-        method: "get"
-      })
-
-      return {
-        data: response.data,
-        error: false,
-      }
-    } catch (error) {
-      return {
-        data: [],
-        error: true
-    }
-    }
-  }
   return {
     props: {
       data: [],
       users: await fetchApi(),
-      api2: await fetchApiTwo()
     }
   }
 }
 
-export default function profile(props) {
+const profile = (props) => {
   const [getUser, setUser] = useState(props.users.data)
   const router = useRouter();
   console.log(getUser.experience)
-  // console.log(getUser.user.name)
+  
+  const img = getUser.user.photo ? `https://peworld.herokuapp.com/${getUser.user.photo}` : '/profile.png'
   return (
     <div className={styles.container} >
     <div className={styles.divOne} />
@@ -78,7 +60,7 @@ export default function profile(props) {
             <div className={styles.boxInfo} >
               <div>
               <div className={styles.profile}>
-                  <Image src={`https://peworld.herokuapp.com/${getUser.user.photo}`} width={150} height={150} className={styles.profile} />
+                  <Image src={img} width={150} height={150} className={styles.profile} />
               </div>
               </div>
                 <h3 className={styles.name} >{getUser.user.name}</h3>
@@ -172,3 +154,6 @@ export default function profile(props) {
   </div>
   )
 }
+
+profile.layouts = 'L1'
+export default profile
