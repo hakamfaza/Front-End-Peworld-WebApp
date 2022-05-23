@@ -29,7 +29,7 @@ export default function Card(params) {
           </div>
           <div className="col-md-2">
             <div className={styles.boxBtn} >
-              <button className={styles.btn} >Lihat Profile</button>
+              <button className={styles.btn} onClick={params.onClick} >Lihat Profile</button>
             </div>
           </div>
         </div>  

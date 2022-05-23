@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
     console.log(search)
     try {
       const response = await axios({
-        url: `https://peworld.herokuapp.com/users/?search=${search}`,
+        url: `https://peworld.herokuapp.com/users/?search=${search}&limit=5`,
         method: "get",
         headers: {
           token
@@ -72,6 +72,10 @@ const ListUser = (props) => {
     router.push(`/users/?search=${getSearch}`)
   }
 
+  const onProfile = (id) => {
+    router.push(`profile/${id}`)
+  }
+
   return (
     <>
       <div>
@@ -93,7 +97,7 @@ const ListUser = (props) => {
               console.log(img)
               return (
                 <div key={index} >
-                  <Card image={`${img}`} address={item.address} name={item.name} />
+                  <Card image={`${img}`} address={item.address} name={item.name} onClick={() => onProfile(`${item.id}`)} />
                 </div>
               )
             })
