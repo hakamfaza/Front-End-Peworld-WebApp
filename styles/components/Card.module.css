@@ -1,0 +1,110 @@
+.user {
+  object-fit: cover;
+  border-radius: 50% !important;
+}
+
+.boxCard {
+  position: relative;
+  display: flex;
+  padding: 10px;
+  width: 1130px;
+  background-color: aqua;
+}
+
+.boxImage{
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  border-radius: 50px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  padding: 10px;
+}
+
+.location {
+  display: flex;
+  justify-items: center;
+  max-height: 20px;
+  margin-top: -8px;
+}
+
+.name {
+  color: rgba(31, 42, 54, 1);
+  font-size: 18px;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+}
+
+.titleProfession {
+  color: rgba(158, 160, 165, 1);
+}
+
+.textLocation {
+  margin-left: 5px;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+.boxSkill {
+  margin-top: 10px;
+  display: flex;
+  max-width: 65%;
+}
+
+.skill {
+  background-color: rgba(251, 176, 23, 1);
+  text-align: center;
+  color: #FFF;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 2px 5px;
+  margin-right: 15px;
+  font-size: 13px;
+  width: 65px;
+}
+
+.boxBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 105px;
+}
+
+.btn {
+  background-color: rgba(94, 80, 161, 1);
+  border: none;
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.boxExperience {
+  display: flex;
+  padding: 10px;
+}
+
+.boxExp {
+  padding: 5px 15px;
+}
+
+.titleJob {
+  color: rgba(31, 42, 54, 1);
+  font-size: 20px;
+}
+
+.company {
+  margin-top: -10px;
+}
+
+.date {
+  margin-top: -15px;
+  color: rgba(158, 160, 165, 1);
+}
+
+.descriptionExp {
+  margin-top: -10px;
+}

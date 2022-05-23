@@ -1,0 +1,23 @@
+.input {
+  width: 100%;
+  padding: 9px 15px;
+  border-radius: 3px;
+  border: rgba(226, 229, 237, 1) 1px solid;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgba(133, 141, 150, 1);
+}
+
+.input:focus {
+  outline: none;
+  color: #000;
+}
+
+.boxForm {
+  margin-top: 30px;
+}
+
+.textForm {
+  color: rgba(158, 160, 165, 1);
+  margin-bottom: 2px;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}

@@ -1,0 +1,27 @@
+.container {
+  background-color: rgba(94, 80, 161, 1);
+  padding: 50px 20px 20px 20px;
+}
+
+.text {
+  margin-top: 30px;
+  max-width: 330px;
+  color: #FFF;
+}
+
+.hr {
+  margin-top: 60px;
+  border: solid 1px #FFFFFF;
+}
+
+.cr {
+  display: flex;
+  justify-content: space-between;
+  color: #FFF;
+}
+
+.crInfo {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+}
