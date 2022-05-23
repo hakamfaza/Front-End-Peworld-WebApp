@@ -4,6 +4,12 @@
   height: 150vh;
 }
 
+.containerEdit {
+  position: relative;
+  background-color: #E5E5E5;
+  height: 300vh;
+}
+
 .divOne {
   background-color: rgba(94, 80, 161, 1);
   width: 100%;
@@ -73,6 +79,28 @@
   margin-top: 25px;
 }
 
+.btnOne {
+  background-color: rgba(94, 80, 161, 1);
+  color: #FFF;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  margin-top: 25px;
+  width: 250px;
+}
+
+.btnTwo {
+  color: rgba(94, 80, 161, 1);
+  background-color: #FFF;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  margin-top: 15px;
+  width: 250px;
+}
+
+
+
 .titleSkill {
   margin-top: 30px;
   color: rgba(31, 42, 54, 1);
@@ -126,4 +154,53 @@
 
 .textPorto {
   text-align: center;
+}
+
+.boxExperience {
+  padding: 15px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.label {
+  margin-top: 20px;
+  color: rgba(158, 160, 165, 1);
+}
+
+.textArea {
+  margin-top: -10px;
+  width: 100%;
+  padding: 15px;
+  border: rgba(226, 229, 237, 1) solid 1px;
+  min-height: 150px;
+}
+
+.textArea:focus {
+  outline: none;
+}
+
+.boxSkill {
+  margin-top: 50px;
+  padding: 15px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.appLabel {
+  margin-left: 5px;
+}
+
+.btnAdd {
+  color: rgba(251, 176, 23, 1);
+  background-color: #FFF;
+  border: #FBB017 solid 1px;
+  padding: 15px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.titleData {
+  color: rgba(31, 42, 54, 1);
+  font-size: 22px;
 }
