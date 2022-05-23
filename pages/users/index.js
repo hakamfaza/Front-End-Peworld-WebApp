@@ -8,8 +8,7 @@ import axios from "axios";
 export async function getServerSideProps(context) {
   const { token} = context.req.cookies
   const fetchApi = async () => {
-    const search = context.query.search
-    console.log(search)
+    const search = context.query.search || ''
     try {
       const response = await axios({
         url: `https://peworld.herokuapp.com/users/?search=${search}&limit=5`,
@@ -94,7 +93,6 @@ const ListUser = (props) => {
           {
             getData.map((item, index) => {
               const img = item.photo ? `https://peworld.herokuapp.com/${item.photo}` : '/profile.png'
-              console.log(img)
               return (
                 <div key={index} >
                   <Card image={`${img}`} address={item.address} name={item.name} onClick={() => onProfile(`${item.id}`)} />
