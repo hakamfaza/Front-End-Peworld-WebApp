@@ -27,7 +27,8 @@ export default function index() {
       password: getForm.password
     }
     axios.post('https://peworld.herokuapp.com/login', body, {}).then((res) => {
-      console.log(res)
+      const token = res.data.token.jwt
+      document.cookie = `token=${token};path/`
       router.push('/profile')
     }).catch((err) => {
       console.log(err.message)
