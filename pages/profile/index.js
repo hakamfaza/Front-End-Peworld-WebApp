@@ -33,29 +33,10 @@ export async function getServerSideProps(context) {
     }
   }
 
-  const fetchApiTwo = async () =>  {
-    try {
-      const response = await axios({
-        url: "https://jsonplaceholder.typicode.com/users",
-        method: "get"
-      })
-
-      return {
-        data: response.data,
-        error: false,
-      }
-    } catch (error) {
-      return {
-        data: [],
-        error: true
-    }
-    }
-  }
   return {
     props: {
       data: [],
       users: await fetchApi(),
-      api2: await fetchApiTwo()
     }
   }
 }
