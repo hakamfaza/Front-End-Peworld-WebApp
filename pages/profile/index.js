@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from 'next/router'
 import styles from '../../styles/Profile.module.css'
 import Image from 'next/image'
 import Skills from "../../compoents/Card/skills";
@@ -8,6 +9,8 @@ import { FiGithub, FiGitlab} from 'react-icons/fi'
 import Experience from "../../compoents/Card/experience";
 
 const Profile = () => {
+  const router = useRouter();
+  const { id } = router.query
   return (
     <div className={styles.container} >
       <div className={styles.divOne} />
@@ -114,15 +117,14 @@ const Profile = () => {
                       <Experience image='/tokepd.jpg' job="Engineer" company='Tokopedia' date='July 2019 - January 2020' description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci, mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at."/>
                     </div>
                   </div>
-        </div>
-    </div>
-</div>
+                  </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   )
 }
