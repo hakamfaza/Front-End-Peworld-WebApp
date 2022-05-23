@@ -3,12 +3,13 @@ import Image from 'next/image'
 import styles from '../../styles/components/Card.module.css'
 
 export default function Card(params) {
+  console.log(params.img)
   return (
     <div className="container shadow-sm">
         <div className="row">
           <div className="col-md-2">
             <div className={styles.boxImage}>
-              <Image src="/nial.jpg" width={80} height={80} className={styles.user}/>
+              <Image src={`${params.image}`} width={80} height={80} className={styles.user}/>
             </div>
           </div>
           <div className="col-md-8">

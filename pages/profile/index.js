@@ -5,6 +5,7 @@ import Skills from "../../compoents/Card/skills";
 import {HiOutlineMail} from 'react-icons/hi'
 import { AiOutlineInstagram } from 'react-icons/ai'
 import { FiGithub, FiGitlab} from 'react-icons/fi'
+import Experience from "../../compoents/Card/experience";
 
 const Profile = () => {
   return (
@@ -69,42 +70,53 @@ const Profile = () => {
             </div>
             <div className="col-md-9">
               <div className={styles.boxPortfolio}>
-                <ul className="nav">
-                  <li >
-                    <a className={styles.titleAction} href="#">Portfolio</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className={styles.titleAction} href="#">Pengalaman kerja</a>
-                  </li>
+              <div className="m-4">
+                <ul className="nav nav-tabs" id="myTab">
+                    <li className="nav-item">
+                       <a href="#home" className="nav-link active" data-bs-toggle="tab">Portfolio</a>
+                    </li>
+                   <li className="nav-item">
+                        <a href="#profile" className="nav-link" data-bs-toggle="tab">Pengalaman kerja</a>
+                    </li>
                 </ul>
-                <div className={styles.containerPorto} >
-                  <div className="row">
-                    <div className="col-md-4" >
+                <div className="tab-content">
+                    <div className="tab-pane fade show active" id="home">
+                    <div className="row">
+                        <div className="col-md-4" >
+                          <div className={styles.boxPorto} >
+                            <Image src="/porto.jpg" width={250} height={150} />
+                            <p className={styles.textPorto} >Remainder app</p>
+                          </div>
+                        </div>
+                        <div className="col-md-4" >
+                          <div className={styles.boxPorto} >
+                            <Image src="/porto.jpg" width={250} height={150} />
+                            <p className={styles.textPorto} >Remainder app</p>
+                          </div>
+                        </div>
+                        <div className="col-md-4" >
                       <div className={styles.boxPorto} >
-                        <Image src="/porto.jpg" width={250} height={150} />
-                        <p className={styles.textPorto} >Remainder app</p>
+                           <Image src="/porto.jpg" width={250} height={150} />
+                            <p className={styles.textPorto} >Remainder app</p>
+                          </div>
+                        </div>
+                        <div className="col-md-4" >
+                          <div className={styles.boxPorto} >
+                            <Image src="/porto.jpg" width={250} height={150} />
+                            <p className={styles.textPorto} >Remainder app</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-md-4" >
-                      <div className={styles.boxPorto} >
-                        <Image src="/porto.jpg" width={250} height={150} />
-                        <p className={styles.textPorto} >Remainder app</p>
-                      </div>
-                    </div>
-                    <div className="col-md-4" >
-                      <div className={styles.boxPorto} >
-                        <Image src="/porto.jpg" width={250} height={150} />
-                        <p className={styles.textPorto} >Remainder app</p>
-                      </div>
-                    </div>
-                    <div className="col-md-4" >
-                      <div className={styles.boxPorto} >
-                        <Image src="/porto.jpg" width={250} height={150} />
-                        <p className={styles.textPorto} >Remainder app</p>
-                      </div>
+                    <div className="tab-pane fade" id="profile">
+                    <div className="row">
+                    <div className="col-md-12" >
+                      <Experience image='/tokepd.jpg' job="Engineer" company='Tokopedia' date='July 2019 - January 2020' description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci, mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at."/>
                     </div>
                   </div>
-                </div>
+        </div>
+    </div>
+</div>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import Layouts from '../layouts/layouts'
+import Head from 'next/head'
 
 const layouts = {
   L1: Layouts
@@ -14,9 +15,15 @@ const NoLayout = ({ children }) => {
 function MyApp({ Component, pageProps }) {
   const Layouts = layouts[Component.layouts] || NoLayout
   return (
+    <>
+      <Head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" />
+      </Head>
     <Layouts>
       <Component {...pageProps} />
     </Layouts>
+    </>
   )
 }
 

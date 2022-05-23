@@ -81,3 +81,30 @@
   padding: 10px 20px;
   border-radius: 5px;
 }
+
+.boxExperience {
+  display: flex;
+  padding: 10px;
+}
+
+.boxExp {
+  padding: 5px 15px;
+}
+
+.titleJob {
+  color: rgba(31, 42, 54, 1);
+  font-size: 20px;
+}
+
+.company {
+  margin-top: -10px;
+}
+
+.date {
+  margin-top: -15px;
+  color: rgba(158, 160, 165, 1);
+}
+
+.descriptionExp {
+  margin-top: -10px;
+}
