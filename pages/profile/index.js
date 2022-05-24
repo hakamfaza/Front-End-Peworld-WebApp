@@ -14,12 +14,13 @@ export async function getServerSideProps(context) {
   const fetchApi = async () => {
     try {
       const response = await axios({
-        url: `https://peworld.herokuapp.com/users/${id}`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
         method: "get",
         headers: {
           token
         }
       })
+      console.log(response.url)
       return {
         data: response.data.data,
         error: false,
@@ -48,8 +49,10 @@ const Profile = (props) => {
   const onEdit = () => {
     router.push('profile/edit')
   }
+  // const url = `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
+  // console.log(url)
   
-  const img = getUser.user.photo ? `https://peworld.herokuapp.com/${getUser.user.photo}` : '/profile.png'
+  const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png'
   return (
     <div className={styles.container} >
     <div className={styles.divOne} />

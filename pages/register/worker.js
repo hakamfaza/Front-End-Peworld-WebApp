@@ -38,7 +38,7 @@ export default function registerWorker() {
           recruiter: getForm.recruiter,
           password: getForm.password
         }
-        axios.post('https://peworld.herokuapp.com/register', body, {}).then((res) => {
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/register`, body, {}).then((res) => {
           console.log(res)
           router.push('/login')
 

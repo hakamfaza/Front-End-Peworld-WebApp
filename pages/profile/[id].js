@@ -48,7 +48,7 @@ const profile = (props) => {
   const [getUser, setUser] = useState(props.users.data)
   const router = useRouter();
   
-  const img = getUser.user.photo ? `https://peworld.herokuapp.com/${getUser.user.photo}` : '/profile.png'
+  const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png'
   return (
     <div className={styles.container} >
     <div className={styles.divOne} />

@@ -11,7 +11,7 @@ export async function getServerSideProps(context) {
     const search = context.query.search || ''
     try {
       const response = await axios({
-        url: `https://peworld.herokuapp.com/users/?search=${search}&limit=5`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/?search=${search}&limit=5`,
         method: "get",
         headers: {
           token

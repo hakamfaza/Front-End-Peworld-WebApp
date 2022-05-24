@@ -1,5 +1,6 @@
 .logo {
   margin: 5px 90px;
+  cursor: pointer;
 }
 
 .boxSide {
@@ -22,4 +23,5 @@
 
 .profile {
   border-radius: 20px;
+  cursor: pointer;
 }

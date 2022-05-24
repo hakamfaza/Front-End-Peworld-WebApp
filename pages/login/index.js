@@ -26,12 +26,13 @@ export default function index() {
       email: getForm.email,
       password: getForm.password
     }
-    axios.post('https://peworld.herokuapp.com/login', body, {}).then((res) => {
+    axios.post(`${process.env.NEXT_PUBLIC_API_URL}/login`, body, {}).then((res) => {
       const token = res.data.token.jwt
       const id = res.data.token.id
       document.cookie = `token=${token};path/`
       document.cookie = `id=${id};path/`
       router.push('/profile')
+      console.log(res)
     }).catch((err) => {
       console.log(err.message)
     })

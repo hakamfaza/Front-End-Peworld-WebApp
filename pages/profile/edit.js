@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
   const fetchApi = async () => {
     try {
       const response = await axios({
-        url: `https://peworld.herokuapp.com/users/${id}`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
         method: "get",
         headers: {
           token
@@ -42,7 +42,7 @@ export async function getServerSideProps(context) {
 const edit = (props) => {
   const [getUser, setUser] = useState(props.users.data)
   console.log(getUser.user)
-  const img = getUser.user.photo ? `https://peworld.herokuapp.com/${getUser.user.photo}` : '/profile.png'
+  const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png'
   const router = useRouter();
   const [getForm, setForm] = useState({
     name: '',
@@ -106,7 +106,7 @@ const edit = (props) => {
     formData.append('description', getForm.description)
 
 
-    axios.put(`https://peworld.herokuapp.com/users/${props.id}`, formData, {
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${props.id}`, formData, {
       headers: {
         token: props.token
       }
