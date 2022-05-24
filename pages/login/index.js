@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import {useRouter} from 'next/router'
 import styles from '../../styles/Auth.module.css'
 import Image from "next/image";
 import Link from "next/link";
 import AuthInput from "../../compoents/Input";
+import axios from 'axios'
 
 export default function index() {
+  const router = useRouter()
+  const [getForm, setForm] = useState({
+    email: '',
+    password: ''
+  })
+
+  const onChange = (e, field) => {
+    setForm({
+      ...getForm,
+      [field]: e.target.value
+    })
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const body = {
+      email: getForm.email,
+      password: getForm.password
+    }
+    axios.post('https://peworld.herokuapp.com/login', body, {}).then((res) => {
+      const token = res.data.token.jwt
+      const id = res.data.token.id
+      document.cookie = `token=${token};path/`
+      document.cookie = `id=${id};path/`
+      router.push('/profile')
+    }).catch((err) => {
+      console.log(err.message)
+    })
+  }
+
   return (
 <div className={styles.container} >
       <div className="container-fuild">
@@ -27,12 +59,12 @@ export default function index() {
               <h1 className={styles.formTitle} >Halo, Pewpeople</h1>
               <p className={styles.formText} >Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
               <div className={styles.containerForm} >
-                <AuthInput type="email" name="email" placeholder="Masukan email" />
-                <AuthInput type="password" placeholder="Masukan kata sandi"  />
+                <AuthInput type="email" name="email" placeholder="Masukan email" onChange={(e) => onChange(e, 'email')} />
+                <AuthInput type="password" placeholder="Masukan kata sandi" onChange={(e) => onChange(e, 'password')} />
                 <Link href="/forgot">
                   <p className={styles.forgot}>Forgot password?</p>
                 </Link>
-                <button className={styles.btn}>Masuk</button>
+                <button className={styles.btn} onClick={(e) => onSubmit(e)} >Masuk</button>
                 <div className={styles.to}>
                   <p>Anda belum punya akun?</p><Link href="/register"><p className={styles.toPage} >Daftar disini</p></Link>
                 </div>

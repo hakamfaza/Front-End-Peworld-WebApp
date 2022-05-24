@@ -19,7 +19,9 @@ export default function Navbar() {
             <div className={styles.boxSide} >
               <IoMdNotificationsOutline className={styles.notif} />
               <HiOutlineMail className={styles.mail} />
+              <Link href='/profile'>
               <Image src='/nial.jpg' width={25} height={25} className={styles.profile} />
+              </Link>
             <div>
             </div>
             </div>
