@@ -3,10 +3,10 @@ import Image from 'next/image'
 import styles from '../../styles/components/Card.module.css'
 
 export default function Card(params) {
-  console.log(params.img)
   return (
     <div className="container shadow-sm">
-        <div className="row">
+      <div className="row">
+      <div className={styles.boxCard} >
           <div className="col-md-2">
             <div className={styles.boxImage}>
               <Image src={`${params.image}`} width={80} height={80} className={styles.user}/>
@@ -29,10 +29,11 @@ export default function Card(params) {
           </div>
           <div className="col-md-2">
             <div className={styles.boxBtn} >
-              <button className={styles.btn} >Lihat Profile</button>
+              <button className={styles.btn} onClick={params.onClick} >Lihat Profile</button>
             </div>
           </div>
-      </div>  
+        </div>  
+        </div>
     </div>
   )
 }

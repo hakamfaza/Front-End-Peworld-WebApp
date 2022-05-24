@@ -10,8 +10,11 @@ import { FiGithub, FiGitlab} from 'react-icons/fi'
 import Experience from "../../compoents/Card/experience";
 
 export async function getServerSideProps(context) {
-  const { token, id } = context.req.cookies
+  const { token } = context.req.cookies
+  
   const fetchApi = async () => {
+    const { id } = context.params
+    console.log(id)
     try {
       const response = await axios({
         url: `https://peworld.herokuapp.com/users/${id}`,
@@ -41,9 +44,10 @@ export async function getServerSideProps(context) {
   }
 }
 
-const Profile = (props) => {
+const profile = (props) => {
   const [getUser, setUser] = useState(props.users.data)
   const router = useRouter();
+  console.log(getUser.experience)
   
   const img = getUser.user.photo ? `https://peworld.herokuapp.com/${getUser.user.photo}` : '/profile.png'
   return (
@@ -151,5 +155,5 @@ const Profile = (props) => {
   )
 }
 
-Profile.layouts = 'L1'
-export default Profile
+profile.layouts = 'L1'
+export default profile

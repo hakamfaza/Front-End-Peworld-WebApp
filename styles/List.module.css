@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 550px;
+  height: 110vh;
 }
 
 .top {
