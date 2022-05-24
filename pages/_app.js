@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import Layouts from '../layouts/layouts'

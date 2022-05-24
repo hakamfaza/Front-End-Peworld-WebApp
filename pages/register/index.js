@@ -38,9 +38,9 @@ export default function register() {
           recruiter: getForm.recruiter,
           password: getForm.password
         }
-        axios.post('http://localhost:4007/register', body, {}).then((res) => {
+        axios.post('https://peworld.herokuapp.com/register', body, {}).then((res) => {
           console.log(res)
-          router.push('/')
+          router.push('/login')
 
         }).catch((err) => {
           console.log(err.message)

@@ -104,9 +104,6 @@ const edit = (props) => {
     formData.append('address', getForm.address)
     formData.append('workplace', getForm.workplace)
     formData.append('description', getForm.description)
-    // console.log(getForm)
-    // console.log(getExperience)
-    console.log(photo.photo[0])
 
 
     axios.put(`https://peworld.herokuapp.com/users/${props.id}`, formData, {
@@ -115,6 +112,7 @@ const edit = (props) => {
       }
     }).then((res) => {
       console.log(res)
+      router.push('/profile')
     }).catch((err) => {
       console.log(err)
     })
