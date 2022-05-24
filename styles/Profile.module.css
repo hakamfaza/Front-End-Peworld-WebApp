@@ -1,7 +1,7 @@
 .container {
   position: relative;
   background-color: #E5E5E5;
-  height: 150vh;
+  min-height: 150vh;
 }
 
 .containerEdit {
@@ -27,13 +27,14 @@
   justify-content: center;
   flex-direction: column;
   background-color:rgba(255, 255, 255, 1);
-  padding: 50px 15px;
+  padding: 50px 30px;
+  border-radius: 8px;
 }
 
 .profile {
   object-fit: cover;
   border-radius: 75px;
-  margin-left: 30px;
+  margin-left: 15px;
 }
 
 .name {
@@ -61,7 +62,8 @@
 }
 
 .job {
-  font-size: 14px;
+  font-size: 16px;
+  margin-top: -10px;
   color: rgba(158, 160, 165, 1);
 }
 
@@ -99,8 +101,6 @@
   width: 250px;
 }
 
-
-
 .titleSkill {
   margin-top: 30px;
   color: rgba(31, 42, 54, 1);
@@ -108,20 +108,21 @@
 }
 
 .icon {
-  font-size: 22px;
+  font-size: 18px;
   color: rgba(155, 155, 155, 1);
-  margin-right: 15px;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
 .contactTop {
   margin-top: 50px;
   display: flex;
+  padding: 0px 10px;
 }
-
 
 .contact {
   display: flex;
-  margin-top: 10px;
+  padding: 0px 10px;
 }
 
 .textContact {
@@ -132,6 +133,7 @@
   padding: 15px;
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
 }
 
 .titleAction {
@@ -150,6 +152,7 @@
 .boxPorto {
   position: relative;
   padding: 5px;
+  border-radius: 8px;
 }
 
 .textPorto {
@@ -160,6 +163,7 @@
   padding: 15px;
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
 }
 
 .label {
@@ -184,6 +188,7 @@
   padding: 15px;
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
 }
 
 .appLabel {

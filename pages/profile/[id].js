@@ -47,13 +47,12 @@ export async function getServerSideProps(context) {
 const profile = (props) => {
   const [getUser, setUser] = useState(props.users.data)
   const router = useRouter();
-  console.log(getUser.experience)
   
   const img = getUser.user.photo ? `https://peworld.herokuapp.com/${getUser.user.photo}` : '/profile.png'
   return (
     <div className={styles.container} >
     <div className={styles.divOne} />
-    <div className="container bg-info" >
+    <div className="container" >
       <div className={styles.boxProfile} >
         <div className="row">
           <div className="col-md-3">
@@ -66,7 +65,7 @@ const profile = (props) => {
                 <h3 className={styles.name} >{getUser.user.name}</h3>
               <p className={styles.profession} >{getUser.user.job_desk}</p>
               <div className={styles.location} >
-                <Image src="/location.svg" width={20} height={20} />
+                <Image src="/location.svg" width={15} height={15} />
                 <p className={styles.textLocation} >{getUser.user.address}</p>
               </div>
               <p className={styles.job} >Freelencer</p>

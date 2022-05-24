@@ -42,8 +42,12 @@ export async function getServerSideProps(context) {
 }
 
 const Profile = (props) => {
+  const router = useRouter()
   const [getUser, setUser] = useState(props.users.data)
-  const router = useRouter();
+
+  const onEdit = () => {
+    router.push('profile/edit')
+  }
   
   const img = getUser.user.photo ? `https://peworld.herokuapp.com/${getUser.user.photo}` : '/profile.png'
   return (
@@ -62,14 +66,14 @@ const Profile = (props) => {
                 <h3 className={styles.name} >{getUser.user.name}</h3>
               <p className={styles.profession} >{getUser.user.job_desk}</p>
               <div className={styles.location} >
-                <Image src="/location.svg" width={20} height={20} />
+                <Image src="/location.svg" width={16} height={16} />
                 <p className={styles.textLocation} >{getUser.user.address}</p>
               </div>
-              <p className={styles.job} >Freelencer</p>
+                <p className={styles.job} >{getUser.user.workplace}</p>
               <p className={styles.description} >
               {getUser.user.description}
               </p>
-              <button className={styles.btn} >Hire</button>
+              <button className={styles.btn} onClick={() => onEdit()} >Edit</button>
               <h5 className={styles.titleSkill} >Skill</h5>
                 <div className="row" >
                   {
@@ -81,11 +85,11 @@ const Profile = (props) => {
                   }
                 <div className={styles.contactTop} >
                   <HiOutlineMail className={styles.icon} />
-                  <p className={styles.textContact} >{getUser.user.email}</p>
+                  <p className={styles.textContact} >{getUser.user.email || 'lorem@gmail.com'}</p>
                 </div>
                 <div className={styles.contact} >
                   <AiOutlineInstagram className={styles.icon} />
-                  <p className={styles.textContact} >{getUser.user.instagram}</p>
+                  <p className={styles.textContact} >{getUser.user.instagram || 'lorem@ipsum'}</p>
                 </div>
                 <div className={styles.contact} >
                   <FiGithub className={styles.icon} />

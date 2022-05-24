@@ -66,7 +66,7 @@ export default function index() {
                 </Link>
                 <button className={styles.btn} onClick={(e) => onSubmit(e)} >Masuk</button>
                 <div className={styles.to}>
-                  <p>Anda belum punya akun?</p><Link href="/register"><p className={styles.toPage} >Daftar disini</p></Link>
+                  <p>Anda belum punya akun?</p><Link href="/register/worker"><p className={styles.toPage} >Daftar disini</p></Link>
                 </div>
               </div>
           </div>
