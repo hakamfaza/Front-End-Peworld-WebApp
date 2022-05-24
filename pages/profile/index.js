@@ -49,8 +49,6 @@ const Profile = (props) => {
   const onEdit = () => {
     router.push('profile/edit')
   }
-  // const url = `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
-  // console.log(url)
   
   const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png'
   return (

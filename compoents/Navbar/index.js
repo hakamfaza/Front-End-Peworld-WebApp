@@ -20,10 +20,8 @@ export default function Navbar() {
               <IoMdNotificationsOutline className={styles.notif} />
               <HiOutlineMail className={styles.mail} />
               <Link href='/profile'>
-              <Image src='/profile.png' width={25} height={25} className={styles.profile} />
+              <Image src='/profile.png' width={26} height={26} className={styles.profile} />
               </Link>
-            <div>
-            </div>
             </div>
           </div>
         </div>
