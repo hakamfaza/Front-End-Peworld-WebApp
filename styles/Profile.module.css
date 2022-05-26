@@ -1,13 +1,13 @@
 .container {
   position: relative;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   min-height: 150vh;
 }
 
 .containerEdit {
   position: relative;
-  background-color: #E5E5E5;
-  height: 300vh;
+  background-color: #e5e5e5;
+  min-height: 300vh;
 }
 
 .divOne {
@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color:rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 1);
   padding: 50px 30px;
   border-radius: 8px;
 }
@@ -48,8 +48,22 @@
   margin-top: -20px;
 }
 
+.input {
+  width: 100%;
+  padding: 9px 15px;
+  border-radius: 3px;
+  border: rgba(226, 229, 237, 1) 1px solid;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgba(133, 141, 150, 1);
+}
+
+.input:focus {
+  outline: none;
+  color: #000;
+}
+
 .textLocation {
-  color:rgba(158, 160, 165, 1);
+  color: rgba(158, 160, 165, 1);
   margin-top: 15px;
   margin-left: 8px;
   font-size: 14px;
@@ -74,7 +88,7 @@
 
 .btn {
   background-color: rgba(94, 80, 161, 1);
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 2px;
   padding: 5px;
@@ -83,7 +97,7 @@
 
 .btnOne {
   background-color: rgba(94, 80, 161, 1);
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 2px;
   padding: 8px;
@@ -93,7 +107,7 @@
 
 .btnTwo {
   color: rgba(94, 80, 161, 1);
-  background-color: #FFF;
+  background-color: #fff;
   border: none;
   border-radius: 2px;
   padding: 8px;
@@ -102,7 +116,7 @@
 }
 
 .titleSkill {
-  margin-top: 30px;
+  margin-top: 10px;
   color: rgba(31, 42, 54, 1);
   font-size: 22px;
 }
@@ -172,15 +186,16 @@
 }
 
 .textArea {
-  margin-top: -10px;
   width: 100%;
   padding: 15px;
   border: rgba(226, 229, 237, 1) solid 1px;
   min-height: 150px;
+  color: rgba(133, 141, 150, 1);
 }
 
 .textArea:focus {
   outline: none;
+  color: #000;
 }
 
 .boxSkill {
@@ -197,8 +212,8 @@
 
 .btnAdd {
   color: rgba(251, 176, 23, 1);
-  background-color: #FFF;
-  border: #FBB017 solid 1px;
+  background-color: #fff;
+  border: #fbb017 solid 1px;
   padding: 15px;
   width: 100%;
   margin-top: 20px;
@@ -211,10 +226,10 @@
 }
 
 .changeProfile {
-  background-color:rgba(94, 80, 161, 1);
+  background-color: rgba(94, 80, 161, 1);
   border-radius: 5px;
   margin-bottom: 20px;
-  color: #FFF;
+  color: #fff;
   font-weight: 600;
   padding: 5px 20px;
   cursor: pointer;
