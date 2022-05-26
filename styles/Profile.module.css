@@ -210,6 +210,14 @@
   font-size: 22px;
 }
 
-.inputImg {
-  
+.changeProfile {
+  background-color:rgba(94, 80, 161, 1);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: #FFF;
+  font-weight: 600;
+  padding: 5px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 5px;
 }

@@ -11,13 +11,35 @@ import Experience from "../../compoents/Card/experience";
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies
+  const myId = context.req.cookies.id
   
   const fetchApi = async () => {
     const { id } = context.params
-    console.log(id)
     try {
       const response = await axios({
         url: `https://peworld.herokuapp.com/users/${id}`,
+        method: "get",
+        headers: {
+          token
+        }
+      })
+      return {
+        data: response.data.data,
+        error: false,
+          token: token || null
+      }
+    } catch (error) {
+      return {
+        data: [],
+        error: true
+    }
+    }
+  }
+
+  const getMyUser = async () => {
+    try {
+      const response = await axios({
+        url: `https://peworld.herokuapp.com/users/${myId}`,
         method: "get",
         headers: {
           token
@@ -40,13 +62,32 @@ export async function getServerSideProps(context) {
     props: {
       data: [],
       users: await fetchApi(),
+      myUser: await getMyUser(),
     }
   }
 }
 
 const profile = (props) => {
   const [getUser, setUser] = useState(props.users.data)
+  const myUser = props.myUser.data.user
+  const token = props.token
+  console.log(token)
   const router = useRouter();
+
+  const sendMessage = async () => {
+    const body = {
+      message: `Halo ${getUser.user.name}, saya ${myUser.name} dari company ${myUser.company} ingin mengundang kamu untuk bekerja di perusahaan kami. Silahkan hubungi no ${myUser.phone} atau email ke ${myUser.email}`
+    }
+    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/message/${getUser.user.id}`, body, {
+      headers: {
+        token
+      }
+    }).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
   
   const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png'
   return (
@@ -66,13 +107,13 @@ const profile = (props) => {
               <p className={styles.profession} >{getUser.user.job_desk}</p>
               <div className={styles.location} >
                 <Image src="/location.svg" width={15} height={15} />
-                <p className={styles.textLocation} >{getUser.user.address}</p>
+                <p className={styles.textLocation} >{getUser.user.address || 'none'}</p>
               </div>
-              <p className={styles.job} >Freelencer</p>
+                <p className={styles.job} >{ getUser.user.workplace}</p>
               <p className={styles.description} >
               {getUser.user.description}
               </p>
-              <button className={styles.btn} >Hire</button>
+              <button className={styles.btn} onClick={() => sendMessage()} >Hire</button>
               <h5 className={styles.titleSkill} >Skill</h5>
                 <div className="row" >
                   {
@@ -84,11 +125,11 @@ const profile = (props) => {
                   }
                 <div className={styles.contactTop} >
                   <HiOutlineMail className={styles.icon} />
-                  <p className={styles.textContact} >{getUser.user.email}</p>
+                  <p className={styles.textContact} >{getUser.user.email || 'lorem@gmail.com'}</p>
                 </div>
                 <div className={styles.contact} >
                   <AiOutlineInstagram className={styles.icon} />
-                  <p className={styles.textContact} >{getUser.user.instagram}</p>
+                  <p className={styles.textContact} >{getUser.user.instagram || 'lorem@gmail.com'}</p>
                 </div>
                 <div className={styles.contact} >
                   <FiGithub className={styles.icon} />

@@ -97,6 +97,10 @@ const edit = (props) => {
   const onClick = (e) => {
     e.preventDefault()
 
+    if (getForm.name || getForm.address || getForm.description || getForm.jobDesk || getForm.workplace || getForm.photo === '') {
+      alert('Semua input harus di isi!')
+    }
+
     const formData = new FormData();
     formData.append('photo', photo.photo[0])
     formData.append('name', getForm.name)
@@ -129,16 +133,16 @@ const edit = (props) => {
               <div>
                   <div className={styles.profile}>
                     <Image src={img} width={150} height={150} className={styles.profile} />
-                    <input type='file' onChange={(e) => onChangeImage(e, 'photo')} className={styles.inputImg} >
+                    <label htmlFor="profile" className={styles.changeProfile} >Change photo</label>
+                    <input id="profile" type='file' onChange={(e) => onChangeImage(e, 'photo')} hidden >
                     </input>
-                    <button>Change profile</button>
               </div>
               </div>
                 <h3 className={styles.name} >{getUser.user.name}</h3>
                 <p className={styles.profession} >{getUser.user.position}</p>
               <div className={styles.location} >
                 <Image src="/location.svg" width={20} height={20} />
-                <p className={styles.textLocation} >{getUser.user.address}</p>
+                <p className={styles.textLocation} >{getUser.user.address || 'none'}</p>
               </div>
               <p className={styles.job} >{getUser.user.job_desk}</p>
             </div>
@@ -149,10 +153,10 @@ const edit = (props) => {
               <div className={styles.boxExperience}>
                 <h3 className={styles.titleData}>Data diri</h3>
                 <hr />
-                <Input title='Nama lengkap' placeholder='Masukan nama lengkap' onChange={(e) => onChange(e, 'name')} defaultValue={getUser.user.name} />
+                <Input title='Nama lengkap' placeholder='Masukan nama lengkap' onChange={(e) => onChange(e, 'name')} defaultValue={getUser.user.name} type='input' />
                 <Input title='Job desk' placeholder='Masukan job desk' onChange={(e) => onChange(e, 'jobDesk')} defaultValue={getUser.user.job_desk} />
                 <Input title='Masukan domisili' placeholder='Masukan domisili' onChange={(e) => onChange(e, 'address')} defaultValue={getUser.user.address} />
-                <Input title='Tempat kerja' placeholder='Masukan tempat kerja' onChange={(e) => onChange(e, 'workplace')} />
+                <Input title='Tempat kerja' placeholder='Masukan tempat kerja' onChange={(e) => onChange(e, 'workplace')} defaultValue={getUser.user.workplace} />
                 <p className={styles.label} >Deskripsi singkat</p>
                 <textarea className={styles.textArea} placeholder='Deskripsikan pekerjaan anda' onChange={(e) => onChange(e, 'description')} defaultValue={getUser.user.description} />
               </div>
