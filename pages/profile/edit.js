@@ -246,8 +246,10 @@ const edit = (props) => {
       skill: getValueSkill,
     };
 
+    const changePhoto = new FormData();
+    changePhoto.append('photo', photo.photo[0]);
+
     const formData = new FormData();
-    formData.append('photo', photo.photo[0]);
     formData.append('name', getForm.name);
     formData.append('jobDesk', getForm.jobDesk);
     formData.append('address', getForm.address);
@@ -256,18 +258,36 @@ const edit = (props) => {
     formData.append('linkedin', getForm.linkedin);
     formData.append('description', getForm.description);
 
-    const expData = new FormData();
-    expData.append('photo', getPhotoExperience.photo[0]);
-    expData.append('company', getExperience.company);
-    expData.append('resignDate', getExperience.resignDate);
-    expData.append('profession', getExperience.profession);
-    expData.append('description', getExperience.descriptionExp);
+    // const expData = new FormData();
+    // expData.append('photo', getPhotoExperience.photo[0]);
+    // expData.append('company', getExperience.company);
+    // expData.append('resignDate', getExperience.resignDate);
+    // expData.append('profession', getExperience.profession);
+    // expData.append('description', getExperience.descriptionExp);
 
-    const portoData = new FormData();
-    portoData.append('photo', getPhotoPorto.photo[0]);
-    portoData.append('aplication', getPortfolio.aplication);
-    portoData.append('repository', getPortfolio.repository);
-    portoData.append('title', getPortfolio.title);
+    // const portoData = new FormData();
+    // portoData.append('photo', getPhotoPorto.photo[0]);
+    // portoData.append('aplication', getPortfolio.aplication);
+    // portoData.append('repository', getPortfolio.repository);
+    // portoData.append('title', getPortfolio.title);
+
+    await axios
+      .put(
+        `${process.env.NEXT_PUBLIC_API_URL}/profile/${props.id}`,
+        changePhoto,
+        {
+          headers: {
+            token: props.token,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        router.push('/profile');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     // await axios
     //   .put(`${process.env.NEXT_PUBLIC_API_URL}/users/${props.id}`, formData, {
