@@ -1,13 +1,6 @@
 .container {
   position: relative;
   background-color: #e5e5e5;
-  min-height: 150vh;
-}
-
-.containerEdit {
-  position: relative;
-  background-color: #e5e5e5;
-  min-height: 300vh;
 }
 
 .divOne {
@@ -17,9 +10,10 @@
 }
 
 .boxProfile {
-  position: absolute;
-  top: 50px;
-  width: 80%;
+  margin-top: -100px;
+  width: 100%;
+  z-index: 9;
+  padding-bottom: 100px;
 }
 
 .boxInfo {
@@ -198,7 +192,7 @@
   color: #000;
 }
 
-.boxSkill {
+.boxCard {
   margin-top: 50px;
   padding: 15px;
   width: 100%;

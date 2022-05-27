@@ -61,13 +61,13 @@ const edit = (props) => {
 
   const [getValueSkill, setValueSkill] = useState([]);
 
+  const [getPhotoExperience, setPhotoExperience] = useState('');
   const [getExperience, setExperience] = useState({
     profession: '',
     company: '',
     resignDate: '',
     descriptionExp: '',
   });
-  const [getPhotoExperience, setPhotoExperience] = useState('');
 
   const [getPortfolio, setPortfolio] = useState({
     title: '',
@@ -110,6 +110,115 @@ const edit = (props) => {
     setPhotoPorto({
       photo: e.target.files,
     });
+  };
+
+  const [getValuCard, setValueCard] = useState([]);
+
+  const addCard = () => {
+    getValuCard.push(
+      <div className={styles.boxCard} key={getValuCard.length}>
+        <h3 className={styles.titleData}>Pengalaman kerja</h3>
+        <hr />
+        <div className="row">
+          <div className="col-md-6">
+            <Input
+              title="Nama perusahaan"
+              placeholder="Masukan nama perusahaan"
+              onChange={(e) => onChange(e, 'company')}
+            />
+          </div>
+          <div className="col-md-6">
+            <Input
+              title="Bulan/tahun"
+              type="date"
+              onChange={(e) => onChange(e, 'resignDate')}
+            />
+          </div>
+          <div className="col-md-12">
+            <Input
+              title="Profession"
+              placeholder="Masukan professi"
+              type="input"
+              onChange={(e) => onChange(e, 'profession')}
+            />
+          </div>
+          <div className="col-md-12">
+            <Input
+              id="experience"
+              type="file"
+              onChange={(e) => addPhotoExp(e, 'photo')}
+              hidden
+            />
+          </div>
+        </div>
+        <p className={styles.label}>Deskripsi singkat</p>
+        <textarea
+          className={styles.textArea}
+          placeholder="Deskripsikan pekerjaan anda"
+          onChange={(e) => onChange(e, 'descriptionExp')}
+        />
+        <hr />
+        <button className={styles.btnAdd} onClick={addCard}>
+          Tambah pengalaman kerja
+        </button>
+      </div>
+    );
+    setValueCard([...getValuCard]);
+  };
+
+  const [getValuePortofolio, setValuePortofolio] = useState([]);
+
+  const addCardPortofolio = () => {
+    getValuePortofolio.push(
+      <div className={styles.boxCard} key={getValuePortofolio.length}>
+        <h3 className={styles.titleData}>Portofolio</h3>
+        <hr />
+        <Input
+          title="Nama aplikasi"
+          placeholder="Masukan nama aplikasi"
+          onChange={(e) => onChange(e, 'title')}
+        />
+        <Input
+          title="Link repository"
+          placeholder="Masukan link repository"
+          onChange={(e) => onChange(e, 'repository')}
+        />
+        <div className="row mt-2">
+          <div className="col-md-3">
+            <input
+              id="web"
+              type="radio"
+              name="app"
+              value="Mobile App"
+              onChange={(e) => onChange(e, 'aplication')}
+            />
+            <label htmlFor="web" className={styles.appLabel}>
+              Aplikasi mobile
+            </label>
+          </div>
+          <div className="col-md-3">
+            <input
+              id="aplikasi"
+              type="radio"
+              name="app"
+              value="Web App"
+              onChange={(e) => onChange(e, 'aplication')}
+            />
+            <label htmlFor="aplikasi" className={styles.appLabel}>
+              Aplikasi web
+            </label>
+          </div>
+        </div>
+        <Input
+          type="file"
+          placeholder="Masukan file"
+          onChange={(e) => onPhotoPorto(e, 'photo')}
+        />
+        <hr />
+        <button className={styles.btnAdd}>Tambah portfolio</button>
+      </div>
+    );
+    setValuePortofolio([...getValuePortofolio]);
   };
 
   const option = [
@@ -160,64 +269,64 @@ const edit = (props) => {
     portoData.append('repository', getPortfolio.repository);
     portoData.append('title', getPortfolio.title);
 
-    await axios
-      .put(`${process.env.NEXT_PUBLIC_API_URL}/users/${props.id}`, formData, {
-        headers: {
-          token: props.token,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        router.push('/profile');
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // await axios
+    //   .put(`${process.env.NEXT_PUBLIC_API_URL}/users/${props.id}`, formData, {
+    //     headers: {
+    //       token: props.token,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     router.push('/profile');
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
-    await axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/skills`, body, {
-        headers: {
-          token: props.token,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // await axios
+    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/skills`, body, {
+    //     headers: {
+    //       token: props.token,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
-    await axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/experience`, expData, {
-        headers: {
-          token: props.token,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // await axios
+    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/experience`, expData, {
+    //     headers: {
+    //       token: props.token,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
-    await axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/portfolio`, portoData, {
-        headers: {
-          token: props.token,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // await axios
+    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/portfolio`, portoData, {
+    //     headers: {
+    //       token: props.token,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   return (
-    <div className={styles.containerEdit}>
+    <div className={styles.container}>
       <div className={styles.divOne} />
-      <div className="container bg-info">
+      <div className="container">
         <div className={styles.boxProfile}>
           <div className="row">
             <div className="col-md-3">
@@ -254,7 +363,10 @@ const edit = (props) => {
               <button className={styles.btnOne} onClick={(e) => onClick(e)}>
                 Simpan
               </button>
-              <button className={styles.btnTwo} onClick={() => router.push('/profile')}>
+              <button
+                className={styles.btnTwo}
+                onClick={() => router.push('/profile')}
+              >
                 Batal
               </button>
             </div>
@@ -307,7 +419,7 @@ const edit = (props) => {
                   defaultValue={getUser.user.description}
                 />
               </div>
-              <div className={styles.boxSkill}>
+              <div className={styles.boxCard}>
                 <h3 className={styles.titleSkill}>Skill</h3>
                 <hr />
                 <Select
@@ -318,7 +430,7 @@ const edit = (props) => {
                   defaultValue={getSkill}
                 />
               </div>
-              <div className={styles.boxSkill}>
+              <div className={styles.boxCard}>
                 <h3 className={styles.titleData}>Pengalaman kerja</h3>
                 <hr />
                 <div className="row">
@@ -359,8 +471,13 @@ const edit = (props) => {
                   placeholder="Deskripsikan pekerjaan anda"
                   onChange={(e) => onChange(e, 'descriptionExp')}
                 />
+                <hr />
+                <button className={styles.btnAdd} onClick={addCard}>
+                  Tambah pengalaman kerja
+                </button>
               </div>
-              <div className={styles.boxSkill}>
+              {getValuCard}
+              <div className={styles.boxCard}>
                 <h3 className={styles.titleData}>Portofolio</h3>
                 <hr />
                 <Input
@@ -405,8 +522,11 @@ const edit = (props) => {
                   onChange={(e) => onPhotoPorto(e, 'photo')}
                 />
                 <hr />
-                <button className={styles.btnAdd}>Tambah portfolio</button>
+                <button className={styles.btnAdd} onClick={addCardPortofolio}>
+                  Tambah portfolio
+                </button>
               </div>
+              {getValuePortofolio}
             </div>
           </div>
         </div>
