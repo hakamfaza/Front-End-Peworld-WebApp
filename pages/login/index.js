@@ -44,7 +44,7 @@ export default function index() {
         const isRecruiter = getUser.data.data.user.recruiter;
         document.cookie = `token=${token};path/`;
         document.cookie = `id=${id};path/`;
-        document.cookie = `recruiter=${isRecruiter};path/`;
+        document.cookie = `isRecruiter=${isRecruiter};path/`;
         Swal.fire({
           icon: 'success',
           title: 'Sucess to login!',

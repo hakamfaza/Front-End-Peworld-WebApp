@@ -47,7 +47,7 @@ const Profile = (props) => {
   const [getUser, setUser] = useState(props.users.data);
 
   const onEdit = () => {
-    router.push('/profile/edit');
+    router.push('/profile/editrecruiter');
   };
 
   const img = getUser.user.photo
