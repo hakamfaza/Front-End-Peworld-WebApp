@@ -69,14 +69,6 @@ const edit = (props) => {
     descriptionExp: '',
   });
 
-  const [getPortfolio, setPortfolio] = useState({
-    title: '',
-    photo: '',
-    aplication: '',
-    repository: '',
-  });
-  const [getPhotoPorto, setPhotoPorto] = useState('');
-
   const onChange = (e, field) => {
     setForm({
       ...getForm,
@@ -111,123 +103,6 @@ const edit = (props) => {
       photo: e.target.files,
     });
   };
-
-  const [getValuCard, setValueCard] = useState([]);
-
-  const addCard = () => {
-    getValuCard.push(
-      <div className={styles.boxCard} key={getValuCard.length}>
-        <h3 className={styles.titleData}>Pengalaman kerja</h3>
-        <hr />
-        <div className="row">
-          <div className="col-md-6">
-            <Input
-              title="Nama perusahaan"
-              placeholder="Masukan nama perusahaan"
-              onChange={(e) => onChange(e, 'company')}
-            />
-          </div>
-          <div className="col-md-6">
-            <Input
-              title="Bulan/tahun"
-              type="date"
-              onChange={(e) => onChange(e, 'resignDate')}
-            />
-          </div>
-          <div className="col-md-12">
-            <Input
-              title="Profession"
-              placeholder="Masukan professi"
-              type="input"
-              onChange={(e) => onChange(e, 'profession')}
-            />
-          </div>
-          <div className="col-md-12">
-            <Input
-              id="experience"
-              type="file"
-              onChange={(e) => addPhotoExp(e, 'photo')}
-              hidden
-            />
-          </div>
-        </div>
-        <p className={styles.label}>Deskripsi singkat</p>
-        <textarea
-          className={styles.textArea}
-          placeholder="Deskripsikan pekerjaan anda"
-          onChange={(e) => onChange(e, 'descriptionExp')}
-        />
-        <hr />
-        <button className={styles.btnAdd} onClick={addCard}>
-          Tambah pengalaman kerja
-        </button>
-      </div>
-    );
-    setValueCard([...getValuCard]);
-  };
-
-  const [getValuePortofolio, setValuePortofolio] = useState([]);
-
-  const addCardPortofolio = () => {
-    getValuePortofolio.push(
-      <div className={styles.boxCard} key={getValuePortofolio.length}>
-        <h3 className={styles.titleData}>Portofolio</h3>
-        <hr />
-        <Input
-          title="Nama aplikasi"
-          placeholder="Masukan nama aplikasi"
-          onChange={(e) => onChange(e, 'title')}
-        />
-        <Input
-          title="Link repository"
-          placeholder="Masukan link repository"
-          onChange={(e) => onChange(e, 'repository')}
-        />
-        <div className="row mt-2">
-          <div className="col-md-3">
-            <input
-              id="web"
-              type="radio"
-              name="app"
-              value="Mobile App"
-              onChange={(e) => onChange(e, 'aplication')}
-            />
-            <label htmlFor="web" className={styles.appLabel}>
-              Aplikasi mobile
-            </label>
-          </div>
-          <div className="col-md-3">
-            <input
-              id="aplikasi"
-              type="radio"
-              name="app"
-              value="Web App"
-              onChange={(e) => onChange(e, 'aplication')}
-            />
-            <label htmlFor="aplikasi" className={styles.appLabel}>
-              Aplikasi web
-            </label>
-          </div>
-        </div>
-        <Input
-          type="file"
-          placeholder="Masukan file"
-          onChange={(e) => onPhotoPorto(e, 'photo')}
-        />
-        <hr />
-        <button className={styles.btnAdd}>Tambah portfolio</button>
-      </div>
-    );
-    setValuePortofolio([...getValuePortofolio]);
-  };
-
-  const option = [
-    { value: 'JavaScript', label: 'JavaScript' },
-    { value: 'PHP', label: 'PHP' },
-    { value: 'ReactJs', label: 'ReactJs' },
-    { value: 'ExpressJs', label: 'ExpressJs' },
-    { value: 'NodeJs', label: 'NodeJs' },
-  ];
 
   const getSkill = getUser.skills.map((item) => {
     return { value: item.skill, label: item.skill };

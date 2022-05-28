@@ -43,6 +43,7 @@ const ListUser = (props) => {
   const router = useRouter();
   const [getData, setData] = useState(props.users.data);
   const [getSearch, setSearch] = useState(router.query.search);
+  // const [pagination, setPagination] =useState(props.users.data.pagination);
 
   const getValueSearch = async () => {
     await axios
@@ -65,19 +66,19 @@ const ListUser = (props) => {
 
   const onSearch = (e) => {
     e.preventDefault();
-    router.push(`/users/?search=${getSearch}`);
+    router.push(`/home/recruiter/?search=${getSearch}`);
     return getValueSearch();
   };
 
   const handleKey = (e) => {
     if (e.key === 'Enter') {
-      router.push(`/users/?search=${getSearch}`);
+      router.push(`/home/recruiter/?search=${getSearch}`);
       return getValueSearch();
     }
   };
 
   const onProfile = (id) => {
-    router.push(`profile/${id}`);
+    router.push(`/profile/${id}`);
   };
 
   return (
@@ -101,16 +102,16 @@ const ListUser = (props) => {
             </button>
           </div>
           {getData.map((item, index) => {
-            const img = item.photo
+            const img = item.user.photo
               ? `https://peworld.herokuapp.com/${item.photo}`
               : '/profile.png';
             return (
               <div key={index}>
                 <Card
                   image={`${img}`}
-                  address={item.address || 'none'}
-                  name={item.name}
-                  onClick={() => onProfile(`${item.id}`)}
+                  address={item.user.address || 'none'}
+                  name={item.user.name}
+                  onClick={() => onProfile(`${item.user.id}`)}
                 />
               </div>
             );
@@ -124,21 +125,7 @@ const ListUser = (props) => {
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
-              <li className="page-item">
-                <a className="page-link" href="#">
-                  1
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#">
-                  2
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#">
-                  3
-                </a>
-              </li>
+              <li className="page-item"></li>
               <li className="page-item">
                 <a className="page-link" href="#" aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>

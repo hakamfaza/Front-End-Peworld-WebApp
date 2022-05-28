@@ -65,13 +65,13 @@ const ListUser = (props) => {
 
   const onSearch = (e) => {
     e.preventDefault();
-    router.push(`/users/?search=${getSearch}`);
+    router.push(`/home/?search=${getSearch}`);
     return getValueSearch();
   };
 
   const handleKey = (e) => {
     if (e.key === 'Enter') {
-      router.push(`/users/?search=${getSearch}`);
+      router.push(`/home/?search=${getSearch}`);
       return getValueSearch();
     }
   };
@@ -101,16 +101,16 @@ const ListUser = (props) => {
             </button>
           </div>
           {getData.map((item, index) => {
-            const img = item.photo
+            const img = item.user.photo
               ? `https://peworld.herokuapp.com/${item.photo}`
               : '/profile.png';
             return (
               <div key={index}>
                 <Card
                   image={`${img}`}
-                  address={item.address || 'none'}
-                  name={item.name}
-                  onClick={() => onProfile(`${item.id}`)}
+                  address={item.user.address || 'none'}
+                  name={item.user.name}
+                  onClick={() => onProfile(`${item.user.id}`)}
                 />
               </div>
             );
