@@ -6,7 +6,8 @@ import Image from 'next/image';
 import Skills from '../../compoents/Card/skills';
 import { HiOutlineMail } from 'react-icons/hi';
 import { AiOutlineInstagram } from 'react-icons/ai';
-import { FiGithub, FiGitlab } from 'react-icons/fi';
+import { FiLinkedin } from 'react-icons/fi';
+import { BsTelephone } from 'react-icons/bs';
 import Experience from '../../compoents/Card/experience';
 
 export async function getServerSideProps(context) {
@@ -54,20 +55,20 @@ const Profile = (props) => {
     ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
     : '/profile.png';
   return (
-    <div className={styles.container}>
-      <div className={styles.divOne} />
+    <div className={styles.containerR}>
       <div className="container">
         <div className={styles.boxProfile}>
           <div className="row">
-            <div className="col-md-3">
-              <div className={styles.boxInfo}>
+            <div className="col-md-12">
+              <div className={styles.boxInfoR}>
+                <div className={styles.divOneR} />
                 <div>
-                  <div className={styles.profile}>
+                  <div className={styles.profileR}>
                     <Image
                       src={img}
                       width={150}
                       height={150}
-                      className={styles.profile}
+                      className={styles.profileR}
                     />
                   </div>
                 </div>
@@ -77,19 +78,14 @@ const Profile = (props) => {
                   <Image src="/location.svg" width={16} height={16} />
                   <p className={styles.textLocation}>{getUser.user.address}</p>
                 </div>
-                <p className={styles.job}>{getUser.user.workplace}</p>
-                <p className={styles.description}>{getUser.user.description}</p>
-                <button className={styles.btn} onClick={() => onEdit()}>
-                  Edit
+                <p className={styles.descriptionR}>
+                  {getUser.user.description}
+                </p>
+                <button className={styles.btnR} onClick={() => onEdit()}>
+                  Edit profile
                 </button>
-                <h5 className={styles.titleSkill}>Skill</h5>
-                <div className="row">
-                  {getUser.skills.map((item, index) => (
-                    <div className="col-sm-4 mt-2" key={index}>
-                      <Skills skill={item.skill} />
-                    </div>
-                  ))}
-                  <div className={styles.contactTop}>
+                <div className={styles.boxContact}>
+                  <div className={styles.contact}>
                     <HiOutlineMail className={styles.icon} />
                     <p className={styles.textContact}>
                       {getUser.user.email || 'lorem@gmail.com'}
@@ -102,78 +98,12 @@ const Profile = (props) => {
                     </p>
                   </div>
                   <div className={styles.contact}>
-                    <FiGithub className={styles.icon} />
+                    <BsTelephone className={styles.icon} />
                     <p className={styles.textContact}>lorem@gmail.com</p>
                   </div>
                   <div className={styles.contact}>
-                    <FiGitlab className={styles.icon} />
+                    <FiLinkedin className={styles.icon} />
                     <p className={styles.textContact}>lorem@gmail.com</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-9">
-              <div className={styles.boxPortfolio}>
-                <div className="m-4">
-                  <ul className="nav nav-tabs" id="myTab">
-                    <li className="nav-item">
-                      <a
-                        href="#home"
-                        className="nav-link active"
-                        data-bs-toggle="tab"
-                      >
-                        Portfolio
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        href="#profile"
-                        className="nav-link"
-                        data-bs-toggle="tab"
-                      >
-                        Pengalaman kerja
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="tab-content">
-                    <div className="tab-pane fade show active" id="home">
-                      <div className="row">
-                        {getUser.portfolio.map((item, index) => {
-                          return (
-                            <div className="col-md-4" key={index}>
-                              <div className={styles.boxPorto}>
-                                <Image
-                                  src={`https://peworld.herokuapp.com/${item.photo}`}
-                                  width={250}
-                                  height={150}
-                                />
-                                <p className={styles.textPorto}>{item.title}</p>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="profile">
-                      <div className="row">
-                        {getUser.experience.map((item, index) => {
-                          const img = item.image
-                            ? `https://peworld.herokuapp.com/${item.photo}`
-                            : '/image/default.png';
-                          return (
-                            <div className="col-md-12" key={index}>
-                              <Experience
-                                image={img}
-                                job={item.profession}
-                                company={item.company}
-                                date={`${item.start_date} - ${item.resign_date}`}
-                                description={item.description}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

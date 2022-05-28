@@ -3,10 +3,24 @@
   background-color: #e5e5e5;
 }
 
+.containerR {
+  position: relative;
+  background-color: #e5e5e5;
+  margin-top: 100px;
+}
+
 .divOne {
   background-color: rgba(94, 80, 161, 1);
   width: 100%;
   height: 200px;
+}
+
+.divOneR {
+  background-color: rgba(94, 80, 161, 1);
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .boxProfile {
@@ -25,15 +39,33 @@
   border-radius: 8px;
 }
 
+.boxInfoR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 1);
+  margin-top: 50px;
+  border-radius: 8px;
+}
+
 .profile {
   object-fit: cover;
   border-radius: 75px;
   margin-left: 15px;
 }
 
+.profileR {
+  object-fit: cover;
+  border-radius: 75px;
+  margin-top: -75px;
+  margin-left: 15px;
+}
+
 .name {
   color: rgba(31, 42, 54, 1);
   font-size: 22px;
+  margin-top: 10px;
 }
 
 .location {
@@ -79,6 +111,12 @@
   color: rgba(158, 160, 165, 1);
   font-size: 14px;
 }
+.descriptionR {
+  color: rgba(158, 160, 165, 1);
+  font-size: 14px;
+  max-width: 500px;
+  text-align: center;
+}
 
 .btn {
   background-color: rgba(94, 80, 161, 1);
@@ -87,6 +125,16 @@
   border-radius: 2px;
   padding: 5px;
   margin-top: 25px;
+}
+
+.btnR {
+  background-color: rgba(94, 80, 161, 1);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  margin-top: 10px;
+  width: 300px;
 }
 
 .btnOne {
@@ -122,8 +170,12 @@
   margin-top: 5px;
 }
 
+.boxContact {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
 .contactTop {
-  margin-top: 50px;
   display: flex;
   padding: 0px 10px;
 }
