@@ -8,7 +8,6 @@ import cookies from 'next-cookies';
 
 export async function getStaticProps(context) {
   const search = 'sari';
-  console.log(context);
   const response = await axios({
     method: 'GET',
     url: `${process.env.NEXT_PUBLIC_API_URL}/users/?search=${search}&limit=5`,
