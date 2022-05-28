@@ -371,14 +371,13 @@ const edit = (props) => {
                   </div>
                 </div>
                 <h3 className={styles.name}>{getUser.user.name}</h3>
-                <p className={styles.profession}>{getUser.user.position}</p>
+                <p className={styles.jobR}>{getUser.user.job_desk}</p>
                 <div className={styles.location}>
                   <Image src="/location.svg" width={20} height={20} />
                   <p className={styles.textLocation}>
                     {getUser.user.address || 'none'}
                   </p>
                 </div>
-                <p className={styles.job}>{getUser.user.job_desk}</p>
               </div>
               <button className={styles.btnOne} onClick={(e) => onClick(e)}>
                 Simpan
@@ -395,14 +394,14 @@ const edit = (props) => {
                 <h3 className={styles.titleData}>Data diri</h3>
                 <hr />
                 <Input
-                  title="Nama lengkap"
-                  placeholder="Masukan nama lengkap"
+                  title="Nama perusahaan"
+                  placeholder="Masukan nama perusahaan"
                   onChange={(e) => onChange(e, 'name')}
                   defaultValue={getUser.user.name}
                   type="input"
                 />
                 <Input
-                  title="Job desk"
+                  title="Bidang"
                   placeholder="Masukan job desk"
                   onChange={(e) => onChange(e, 'jobDesk')}
                   defaultValue={getUser.user.job_desk}
@@ -413,11 +412,18 @@ const edit = (props) => {
                   onChange={(e) => onChange(e, 'address')}
                   defaultValue={getUser.user.address}
                 />
+                <label className={styles.label}>Deskripsi singkat</label>
+                <textarea
+                  className={styles.textArea}
+                  placeholder="Deskripsikan pekerjaan anda"
+                  onChange={(e) => onChange(e, 'description')}
+                  defaultValue={getUser.user.description}
+                />
                 <Input
-                  title="Tempat kerja"
-                  placeholder="Masukan tempat kerja"
+                  title="Email"
+                  placeholder="Masukan email"
                   onChange={(e) => onChange(e, 'workplace')}
-                  defaultValue={getUser.user.workplace}
+                  defaultValue={getUser.user.email}
                 />
                 <Input
                   title="Instagram"
@@ -426,127 +432,18 @@ const edit = (props) => {
                   defaultValue={getUser.user.instagram}
                 />
                 <Input
+                  title="Nomor Telepon"
+                  placeholder="Masukan nomor telepon"
+                  onChange={(e) => onChange(e, 'phone')}
+                  defaultValue={getUser.user.phone}
+                />
+                <Input
                   title="Linkedin"
                   placeholder="Masukan nama linkedin"
                   onChange={(e) => onChange(e, 'linkedin')}
                   defaultValue={getUser.user.linkedin}
                 />
-                <label className={styles.label}>Deskripsi singkat</label>
-                <textarea
-                  className={styles.textArea}
-                  placeholder="Deskripsikan pekerjaan anda"
-                  onChange={(e) => onChange(e, 'description')}
-                  defaultValue={getUser.user.description}
-                />
               </div>
-              <div className={styles.boxCard}>
-                <h3 className={styles.titleSkill}>Skill</h3>
-                <hr />
-                <Select
-                  isMulti
-                  name="skill"
-                  options={option}
-                  onChange={(e) => onSkill(e, 'value')}
-                  defaultValue={getSkill}
-                />
-              </div>
-              <div className={styles.boxCard}>
-                <h3 className={styles.titleData}>Pengalaman kerja</h3>
-                <hr />
-                <div className="row">
-                  <div className="col-md-6">
-                    <Input
-                      title="Nama perusahaan"
-                      placeholder="Masukan nama perusahaan"
-                      onChange={(e) => onChange(e, 'company')}
-                    />
-                  </div>
-                  <div className="col-md-6">
-                    <Input
-                      title="Bulan/tahun"
-                      type="date"
-                      onChange={(e) => onChange(e, 'resignDate')}
-                    />
-                  </div>
-                  <div className="col-md-12">
-                    <Input
-                      title="Profession"
-                      placeholder="Masukan professi"
-                      type="input"
-                      onChange={(e) => onChange(e, 'profession')}
-                    />
-                  </div>
-                  <div className="col-md-12">
-                    <Input
-                      id="experience"
-                      type="file"
-                      onChange={(e) => addPhotoExp(e, 'photo')}
-                      hidden
-                    />
-                  </div>
-                </div>
-                <p className={styles.label}>Deskripsi singkat</p>
-                <textarea
-                  className={styles.textArea}
-                  placeholder="Deskripsikan pekerjaan anda"
-                  onChange={(e) => onChange(e, 'descriptionExp')}
-                />
-                <hr />
-                <button className={styles.btnAdd} onClick={addCard}>
-                  Tambah pengalaman kerja
-                </button>
-              </div>
-              {getValuCard}
-              <div className={styles.boxCard}>
-                <h3 className={styles.titleData}>Portofolio</h3>
-                <hr />
-                <Input
-                  title="Nama aplikasi"
-                  placeholder="Masukan nama aplikasi"
-                  onChange={(e) => onChange(e, 'title')}
-                />
-                <Input
-                  title="Link repository"
-                  placeholder="Masukan link repository"
-                  onChange={(e) => onChange(e, 'repository')}
-                />
-                <div className="row mt-2">
-                  <div className="col-md-3">
-                    <input
-                      id="web"
-                      type="radio"
-                      name="app"
-                      value="Mobile App"
-                      onChange={(e) => onChange(e, 'aplication')}
-                    />
-                    <label htmlFor="web" className={styles.appLabel}>
-                      Aplikasi mobile
-                    </label>
-                  </div>
-                  <div className="col-md-3">
-                    <input
-                      id="aplikasi"
-                      type="radio"
-                      name="app"
-                      value="Web App"
-                      onChange={(e) => onChange(e, 'aplication')}
-                    />
-                    <label htmlFor="aplikasi" className={styles.appLabel}>
-                      Aplikasi web
-                    </label>
-                  </div>
-                </div>
-                <Input
-                  type="file"
-                  placeholder="Masukan file"
-                  onChange={(e) => onPhotoPorto(e, 'photo')}
-                />
-                <hr />
-                <button className={styles.btnAdd} onClick={addCardPortofolio}>
-                  Tambah portfolio
-                </button>
-              </div>
-              {getValuePortofolio}
             </div>
           </div>
         </div>
