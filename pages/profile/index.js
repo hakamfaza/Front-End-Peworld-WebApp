@@ -17,19 +17,19 @@ export async function getServerSideProps(context) {
         url: `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
         method: 'get',
         headers: {
-          token,
-        },
+          token
+        }
       });
       console.log(response.url);
       return {
         data: response.data.data,
         error: false,
-        token: token || null,
+        token: token || null
       };
     } catch (error) {
       return {
         data: [],
-        error: true,
+        error: true
       };
     }
   };
@@ -37,12 +37,12 @@ export async function getServerSideProps(context) {
   return {
     props: {
       data: [],
-      users: await fetchApi(),
-    },
+      users: await fetchApi()
+    }
   };
 }
 
-const Profile = (props) => {
+const Profile = props => {
   const router = useRouter();
   const [getUser, setUser] = useState(props.users.data);
 
@@ -50,9 +50,7 @@ const Profile = (props) => {
     router.push('/profile/edit');
   };
 
-  const img = getUser.user.photo
-    ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
-    : '/profile.png';
+  const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png';
   return (
     <div className={styles.container}>
       <div className={styles.divOne} />
@@ -63,12 +61,7 @@ const Profile = (props) => {
               <div className={styles.boxInfo}>
                 <div>
                   <div className={styles.profile}>
-                    <Image
-                      src={img}
-                      width={150}
-                      height={150}
-                      className={styles.profile}
-                    />
+                    <Image src={img} width={150} height={150} className={styles.profile} />
                   </div>
                 </div>
                 <h3 className={styles.name}>{getUser.user.name}</h3>
@@ -89,25 +82,23 @@ const Profile = (props) => {
                       <Skills skill={item.skill} />
                     </div>
                   ))}
-                  <div className={styles.contactTop}>
-                    <HiOutlineMail className={styles.icon} />
-                    <p className={styles.textContact}>
-                      {getUser.user.email || 'lorem@gmail.com'}
-                    </p>
-                  </div>
-                  <div className={styles.contact}>
-                    <AiOutlineInstagram className={styles.icon} />
-                    <p className={styles.textContact}>
-                      {getUser.user.instagram || 'lorem@ipsum'}
-                    </p>
-                  </div>
-                  <div className={styles.contact}>
-                    <FiGithub className={styles.icon} />
-                    <p className={styles.textContact}>lorem@gmail.com</p>
-                  </div>
-                  <div className={styles.contact}>
-                    <FiGitlab className={styles.icon} />
-                    <p className={styles.textContact}>lorem@gmail.com</p>
+                  <div className={styles.boxContact}>
+                    <div className={styles.contact}>
+                      <HiOutlineMail className={styles.icon} />
+                      <p className={styles.textContact}>{getUser.user.email || 'lorem@gmail.com'}</p>
+                    </div>
+                    <div className={styles.contact}>
+                      <AiOutlineInstagram className={styles.icon} />
+                      <p className={styles.textContact}>{getUser.user.instagram || 'lorem@ipsum'}</p>
+                    </div>
+                    <div className={styles.contact}>
+                      <FiGithub className={styles.icon} />
+                      <p className={styles.textContact}>lorem@gmail.com</p>
+                    </div>
+                    <div className={styles.contact}>
+                      <FiGitlab className={styles.icon} />
+                      <p className={styles.textContact}>lorem@gmail.com</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -117,20 +108,12 @@ const Profile = (props) => {
                 <div className="m-4">
                   <ul className="nav nav-tabs" id="myTab">
                     <li className="nav-item">
-                      <a
-                        href="#home"
-                        className="nav-link active"
-                        data-bs-toggle="tab"
-                      >
+                      <a href="#home" className="nav-link active" data-bs-toggle="tab">
                         Portfolio
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a
-                        href="#profile"
-                        className="nav-link"
-                        data-bs-toggle="tab"
-                      >
+                      <a href="#profile" className="nav-link" data-bs-toggle="tab">
                         Pengalaman kerja
                       </a>
                     </li>
@@ -140,13 +123,9 @@ const Profile = (props) => {
                       <div className="row">
                         {getUser.portfolio.map((item, index) => {
                           return (
-                            <div className="col-md-4" key={index}>
+                            <div className="col-md-4 mt-3" key={index}>
                               <div className={styles.boxPorto}>
-                                <Image
-                                  src={`https://peworld.herokuapp.com/${item.photo}`}
-                                  width={250}
-                                  height={150}
-                                />
+                                <Image src={`${item.photo}`} width={250} height={150} />
                                 <p className={styles.textPorto}>{item.title}</p>
                               </div>
                             </div>
@@ -157,13 +136,10 @@ const Profile = (props) => {
                     <div className="tab-pane fade" id="profile">
                       <div className="row">
                         {getUser.experience.map((item, index) => {
-                          const img = item.image
-                            ? `https://peworld.herokuapp.com/${item.photo}`
-                            : '/image/default.png';
                           return (
                             <div className="col-md-12" key={index}>
                               <Experience
-                                image={img}
+                                image={item.photo}
                                 job={item.profession}
                                 company={item.company}
                                 date={`${item.start_date} - ${item.resign_date}`}
