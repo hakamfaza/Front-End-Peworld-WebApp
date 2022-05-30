@@ -5,6 +5,7 @@ import styles from '../../styles/Profile.module.css';
 import Image from 'next/image';
 import Input from '../../compoents/Input';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export async function getServerSideProps(context) {
   const { token, id } = context.req.cookies;
@@ -41,6 +42,7 @@ export async function getServerSideProps(context) {
 }
 
 const edit = (props) => {
+  console.log(props.data.user);
   const [getUser, setUser] = useState(props.users.data);
   const img = getUser.user.photo
     ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
@@ -54,34 +56,14 @@ const edit = (props) => {
     description: getUser.user.description,
     instagram: getUser.user.instagram,
     linkedin: getUser.user.linkedin,
+    email: getUser.user.email,
+    phone: getUser.user.phone,
   });
-  const [photo, setPhoto] = useState(
-    `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
-  );
-
-  const [getValueSkill, setValueSkill] = useState([]);
-
-  const [getPhotoExperience, setPhotoExperience] = useState('');
-  const [getExperience, setExperience] = useState({
-    profession: '',
-    company: '',
-    resignDate: '',
-    descriptionExp: '',
-  });
+  const [photo, setPhoto] = useState('');
 
   const onChange = (e, field) => {
     setForm({
       ...getForm,
-      [field]: e.target.value,
-    });
-
-    setExperience({
-      ...getExperience,
-      [field]: e.target.value,
-    });
-
-    setPortfolio({
-      ...getPortfolio,
       [field]: e.target.value,
     });
   };
@@ -92,130 +74,56 @@ const edit = (props) => {
     });
   };
 
-  const addPhotoExp = (e, field) => {
-    setPhotoExperience({
-      photo: e.target.files,
-    });
-  };
-
-  const onPhotoPorto = (e, field) => {
-    setPhotoPorto({
-      photo: e.target.files,
-    });
-  };
-
-  const getSkill = getUser.skills.map((item) => {
-    return { value: item.skill, label: item.skill };
-  });
-
-  const onSkill = (e) => {
-    const skill = e.map((item) => {
-      return item.value;
-    });
-    setValueSkill(skill);
-  };
-
   const onClick = async (e) => {
     e.preventDefault();
-    const body = {
-      skill: getValueSkill,
-    };
 
-    const changePhoto = new FormData();
-    changePhoto.append('photo', photo.photo[0]);
+    if (photo) {
+      const changePhoto = new FormData();
+      changePhoto.append('photo', photo.photo[0]);
 
-    const formData = new FormData();
-    formData.append('name', getForm.name);
-    formData.append('jobDesk', getForm.jobDesk);
-    formData.append('address', getForm.address);
-    formData.append('workplace', getForm.workplace);
-    formData.append('instagram', getForm.instagram);
-    formData.append('linkedin', getForm.linkedin);
-    formData.append('description', getForm.description);
-
-    // const expData = new FormData();
-    // expData.append('photo', getPhotoExperience.photo[0]);
-    // expData.append('company', getExperience.company);
-    // expData.append('resignDate', getExperience.resignDate);
-    // expData.append('profession', getExperience.profession);
-    // expData.append('description', getExperience.descriptionExp);
-
-    // const portoData = new FormData();
-    // portoData.append('photo', getPhotoPorto.photo[0]);
-    // portoData.append('aplication', getPortfolio.aplication);
-    // portoData.append('repository', getPortfolio.repository);
-    // portoData.append('title', getPortfolio.title);
+      await axios
+        .put(
+          `${process.env.NEXT_PUBLIC_API_URL}/profile/${props.id}`,
+          changePhoto,
+          {
+            headers: {
+              token: props.token,
+            },
+          }
+        )
+        .then((res) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Sucess update profile!',
+            showConfirmButton: false,
+            timer: 1800,
+          });
+          router.push('/profile');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      return;
+    }
 
     await axios
-      .put(
-        `${process.env.NEXT_PUBLIC_API_URL}/profile/${props.id}`,
-        changePhoto,
-        {
-          headers: {
-            token: props.token,
-          },
-        }
-      )
+      .put(`${process.env.NEXT_PUBLIC_API_URL}/users/${props.id}`, getForm, {
+        headers: {
+          token: props.token,
+        },
+      })
       .then((res) => {
-        console.log(res);
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucess update profile!',
+          showConfirmButton: false,
+          timer: 1800,
+        });
         router.push('/profile');
       })
       .catch((err) => {
         console.log(err);
       });
-
-    // await axios
-    //   .put(`${process.env.NEXT_PUBLIC_API_URL}/users/${props.id}`, formData, {
-    //     headers: {
-    //       token: props.token,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     router.push('/profile');
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    // await axios
-    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/skills`, body, {
-    //     headers: {
-    //       token: props.token,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    // await axios
-    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/experience`, expData, {
-    //     headers: {
-    //       token: props.token,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    // await axios
-    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/portfolio`, portoData, {
-    //     headers: {
-    //       token: props.token,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
 
   return (
@@ -246,7 +154,7 @@ const edit = (props) => {
                   </div>
                 </div>
                 <h3 className={styles.name}>{getUser.user.name}</h3>
-                <p className={styles.jobR}>{getUser.user.job_desk}</p>
+                <p className={styles.jobR}>{getUser.user.jobDesk}</p>
                 <div className={styles.location}>
                   <Image src="/location.svg" width={20} height={20} />
                   <p className={styles.textLocation}>
@@ -297,7 +205,7 @@ const edit = (props) => {
                 <Input
                   title="Email"
                   placeholder="Masukan email"
-                  onChange={(e) => onChange(e, 'workplace')}
+                  onChange={(e) => onChange(e, 'email')}
                   defaultValue={getUser.user.email}
                 />
                 <Input
