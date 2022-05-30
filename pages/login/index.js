@@ -119,7 +119,7 @@ export default function index() {
                 </button>
                 <div className={styles.to}>
                   <p>Anda belum punya akun?</p>
-                  <Link href="/register/worker">
+                  <Link href="/register">
                     <p className={styles.toPage}>Daftar disini</p>
                   </Link>
                 </div>

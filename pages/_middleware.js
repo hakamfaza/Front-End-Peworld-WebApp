@@ -8,6 +8,7 @@ export default function middleware(req) {
   if (
     !token &&
     pathname !== '/login' &&
+    pathname !== '/register' &&
     pathname !== '/register/worker' &&
     pathname !== '/register/recruiter' &&
     pathname !== '/'
