@@ -99,11 +99,15 @@ const Profile = (props) => {
                   </div>
                   <div className={styles.contact}>
                     <BsTelephone className={styles.icon} />
-                    <p className={styles.textContact}>lorem@gmail.com</p>
+                    <p className={styles.textContact}>
+                      {getUser.user.phone || '08xx-xxx-xxx'}
+                    </p>
                   </div>
                   <div className={styles.contact}>
                     <FiLinkedin className={styles.icon} />
-                    <p className={styles.textContact}>lorem@gmail.com</p>
+                    <p className={styles.textContact}>
+                      {getUser.user.linkedin || 'lorem@ipsum'}
+                    </p>
                   </div>
                 </div>
               </div>
