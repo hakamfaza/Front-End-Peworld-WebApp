@@ -6,28 +6,43 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import axios from 'axios';
 import cookies from 'next-cookies';
 
-export async function getStaticProps(context) {
-  const search = 'sari';
-  const response = await axios({
-    method: 'GET',
-    url: `${process.env.NEXT_PUBLIC_API_URL}/users/?search=${search}&limit=5`,
-    headers: {
-      token:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMWUyNWQ1LTZlNGMtNDE2My1iMmZlLTgxNTQyY2JjOTY1OCIsInJlY3J1aXRlciI6dHJ1ZSwiaWF0IjoxNjUzNzAxNjkyLCJleHAiOjE2NTM3ODgwOTJ9.rpnPtn0aaniYWiWouS39VeYYCJXOrZJRIfdrOs4CIfU',
-    },
-  });
-  // console.log(response.data);
+export async function getServerSideProps(context) {
+  const { token } = context.req.cookies;
+  const fetchApi = async () => {
+    const search = context.query.search || '';
+    try {
+      const response = await axios({
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/?search=${search}&limit=5`,
+        method: 'get',
+        headers: {
+          token,
+        },
+      });
+      return {
+        data: response.data.data,
+        error: false,
+        token: token,
+      };
+    } catch (error) {
+      return {
+        data: [],
+        error: true,
+      };
+    }
+  };
+
   return {
     props: {
-      data: response.data.data,
-    }, // will be passed to the page component as props
-    revalidate: 10,
+      data: [],
+      users: await fetchApi(),
+      token: token || null,
+    },
   };
 }
 
 const ListUser = (props) => {
   const router = useRouter();
-  const [getData, setData] = useState(props.data);
+  const [getData, setData] = useState(props.users.data);
   console.log(getData);
   const [getSearch, setSearch] = useState(router.query.search);
   console.log(getSearch);
