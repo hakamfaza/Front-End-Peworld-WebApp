@@ -84,6 +84,9 @@ const Profile = (props) => {
                 <button className={styles.btnR} onClick={() => onEdit()}>
                   Edit profile
                 </button>
+                <button className={styles.btnOut} onClick={() => onEdit()}>
+                  Logout
+                </button>
                 <div className={styles.boxContact}>
                   <div className={styles.contact}>
                     <HiOutlineMail className={styles.icon} />

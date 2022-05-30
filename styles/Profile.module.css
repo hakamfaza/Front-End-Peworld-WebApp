@@ -142,6 +142,16 @@
   width: 300px;
 }
 
+.btnOut {
+  color: rgba(94, 80, 161, 1);
+  background-color: #fff;
+  border: rgba(94, 80, 161, 1) 1px solid;
+  border-radius: 2px;
+  padding: 8px;
+  margin-top: 20px;
+  width: 300px;
+}
+
 .btnOne {
   background-color: rgba(94, 80, 161, 1);
   color: #fff;
