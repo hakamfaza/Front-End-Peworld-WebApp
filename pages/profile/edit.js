@@ -5,6 +5,7 @@ import styles from '../../styles/Profile.module.css';
 import Image from 'next/image';
 import Input from '../../compoents/Input';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export async function getServerSideProps(context) {
   const { token, id } = context.req.cookies;
@@ -14,18 +15,18 @@ export async function getServerSideProps(context) {
         url: `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
         method: 'get',
         headers: {
-          token,
-        },
+          token
+        }
       });
       return {
         data: response.data.data,
         error: false,
-        token: token || null,
+        token: token || null
       };
     } catch (error) {
       return {
         data: [],
-        error: true,
+        error: true
       };
     }
   };
@@ -35,16 +36,14 @@ export async function getServerSideProps(context) {
       data: [],
       users: await fetchApi(),
       token,
-      id,
-    },
+      id
+    }
   };
 }
 
-const edit = (props) => {
+const edit = props => {
   const [getUser, setUser] = useState(props.users.data);
-  const img = getUser.user.photo
-    ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
-    : '/profile.png';
+  const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png';
   const router = useRouter();
   const [getForm, setForm] = useState({
     name: getUser.user.name,
@@ -54,69 +53,62 @@ const edit = (props) => {
     description: getUser.user.description,
     instagram: getUser.user.instagram,
     linkedin: getUser.user.linkedin,
+    email: getUser.user.email,
+    phone: getUser.user.phone
   });
-  const [photo, setPhoto] = useState(
-    `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
-  );
+  const [photo, setPhoto] = useState('');
 
   const [getValueSkill, setValueSkill] = useState([]);
 
-  const [getPhotoExperience, setPhotoExperience] = useState('');
   const [getExperience, setExperience] = useState({
     profession: '',
     company: '',
     resignDate: '',
-    descriptionExp: '',
+    description: '',
+    photo: ''
   });
 
   const [getPortfolio, setPortfolio] = useState({
     title: '',
     photo: '',
     aplication: '',
-    repository: '',
+    repository: ''
   });
-  const [getPhotoPorto, setPhotoPorto] = useState('');
 
   const onChange = (e, field) => {
     setForm({
       ...getForm,
-      [field]: e.target.value,
-    });
-
-    setExperience({
-      ...getExperience,
-      [field]: e.target.value,
-    });
-
-    setPortfolio({
-      ...getPortfolio,
-      [field]: e.target.value,
+      [field]: e.target.value
     });
   };
+
+  const onChangeExp = (e, field) => {
+    setExperience({
+      ...getExperience,
+      [field]: e.target.value
+    });
+  };
+
+  const onChangePorto = (e, field) => {
+    setPortfolio({
+      ...getPortfolio,
+      [field]: e.target.value
+    });
+  };
+
+  console.log(getPortfolio);
 
   const onChangeImage = (e, field) => {
     setPhoto({
-      photo: e.target.files,
+      photo: e.target.files
     });
   };
 
-  const addPhotoExp = (e, field) => {
-    setPhotoExperience({
-      photo: e.target.files,
-    });
-  };
-
-  const onPhotoPorto = (e, field) => {
-    setPhotoPorto({
-      photo: e.target.files,
-    });
-  };
-
-  const [getValuCard, setValueCard] = useState([]);
+  const [getValueCard, setValueCard] = useState([]);
 
   const addCard = () => {
-    getValuCard.push(
-      <div className={styles.boxCard} key={getValuCard.length}>
+    getValueCard.push(
+      <div className={styles.boxCard}>
         <h3 className={styles.titleData}>Pengalaman kerja</h3>
         <hr />
         <div className="row">
@@ -124,30 +116,27 @@ const edit = (props) => {
             <Input
               title="Nama perusahaan"
               placeholder="Masukan nama perusahaan"
-              onChange={(e) => onChange(e, 'company')}
+              onChange={e => onChangeExp(e, 'company')}
             />
           </div>
           <div className="col-md-6">
-            <Input
-              title="Bulan/tahun"
-              type="date"
-              onChange={(e) => onChange(e, 'resignDate')}
-            />
+            <Input title="Bulan/tahun" type="date" onChange={e => onChangeExp(e, 'resignDate')} />
           </div>
           <div className="col-md-12">
             <Input
               title="Profession"
               placeholder="Masukan professi"
               type="input"
-              onChange={(e) => onChange(e, 'profession')}
+              onChange={e => onChangeExp(e, 'profession')}
             />
           </div>
           <div className="col-md-12">
             <Input
               id="experience"
-              type="file"
-              onChange={(e) => addPhotoExp(e, 'photo')}
-              hidden
+              type="text"
+              title="Photo"
+              placeholder="Masukan link photo"
+              onChange={e => onChangeExp(e, 'photo')}
             />
           </div>
         </div>
@@ -155,7 +144,7 @@ const edit = (props) => {
         <textarea
           className={styles.textArea}
           placeholder="Deskripsikan pekerjaan anda"
-          onChange={(e) => onChange(e, 'descriptionExp')}
+          onChange={e => onChangeExp(e, 'description')}
         />
         <hr />
         <button className={styles.btnAdd} onClick={addCard}>
@@ -163,7 +152,7 @@ const edit = (props) => {
         </button>
       </div>
     );
-    setValueCard([...getValuCard]);
+    setValueCard([...getValueCard]);
   };
 
   const [getValuePortofolio, setValuePortofolio] = useState([]);
@@ -173,25 +162,15 @@ const edit = (props) => {
       <div className={styles.boxCard} key={getValuePortofolio.length}>
         <h3 className={styles.titleData}>Portofolio</h3>
         <hr />
-        <Input
-          title="Nama aplikasi"
-          placeholder="Masukan nama aplikasi"
-          onChange={(e) => onChange(e, 'title')}
-        />
+        <Input title="Nama aplikasi" placeholder="Masukan nama aplikasi" onChange={e => onChangePorto(e, 'title')} />
         <Input
           title="Link repository"
           placeholder="Masukan link repository"
-          onChange={(e) => onChange(e, 'repository')}
+          onChange={e => onChangePorto(e, 'repository')}
         />
         <div className="row mt-2">
           <div className="col-md-3">
-            <input
-              id="web"
-              type="radio"
-              name="app"
-              value="Mobile App"
-              onChange={(e) => onChange(e, 'aplication')}
-            />
+            <input id="web" type="radio" name="app" value="Mobile App" onChange={e => onChangePorto(e, 'aplication')} />
             <label htmlFor="web" className={styles.appLabel}>
               Aplikasi mobile
             </label>
@@ -202,18 +181,14 @@ const edit = (props) => {
               type="radio"
               name="app"
               value="Web App"
-              onChange={(e) => onChange(e, 'aplication')}
+              onChange={e => onChangePorto(e, 'aplication')}
             />
             <label htmlFor="aplikasi" className={styles.appLabel}>
               Aplikasi web
             </label>
           </div>
         </div>
-        <Input
-          type="file"
-          placeholder="Masukan file"
-          onChange={(e) => onPhotoPorto(e, 'photo')}
-        />
+        <Input type="text" title="Photo" placeholder="Masukan link photo" onChange={e => onChangePorto(e, 'photo')} />
         <hr />
         <button className={styles.btnAdd}>Tambah portfolio</button>
       </div>
@@ -226,121 +201,113 @@ const edit = (props) => {
     { value: 'PHP', label: 'PHP' },
     { value: 'ReactJs', label: 'ReactJs' },
     { value: 'ExpressJs', label: 'ExpressJs' },
-    { value: 'NodeJs', label: 'NodeJs' },
+    { value: 'NodeJs', label: 'NodeJs' }
   ];
 
-  const getSkill = getUser.skills.map((item) => {
+  const getSkill = getUser.skills.map(item => {
     return { value: item.skill, label: item.skill };
   });
 
-  const onSkill = (e) => {
-    const skill = e.map((item) => {
+  const onSkill = e => {
+    const skill = e.map(item => {
       return item.value;
     });
     setValueSkill(skill);
   };
 
-  const onClick = async (e) => {
+  const onClick = async e => {
     e.preventDefault();
     const body = {
-      skill: getValueSkill,
+      skill: getValueSkill
     };
 
-    const changePhoto = new FormData();
-    changePhoto.append('photo', photo.photo[0]);
-
-    const formData = new FormData();
-    formData.append('name', getForm.name);
-    formData.append('jobDesk', getForm.jobDesk);
-    formData.append('address', getForm.address);
-    formData.append('workplace', getForm.workplace);
-    formData.append('instagram', getForm.instagram);
-    formData.append('linkedin', getForm.linkedin);
-    formData.append('description', getForm.description);
-
-    // const expData = new FormData();
-    // expData.append('photo', getPhotoExperience.photo[0]);
-    // expData.append('company', getExperience.company);
-    // expData.append('resignDate', getExperience.resignDate);
-    // expData.append('profession', getExperience.profession);
-    // expData.append('description', getExperience.descriptionExp);
-
-    // const portoData = new FormData();
-    // portoData.append('photo', getPhotoPorto.photo[0]);
-    // portoData.append('aplication', getPortfolio.aplication);
-    // portoData.append('repository', getPortfolio.repository);
-    // portoData.append('title', getPortfolio.title);
+    if (photo) {
+      const changePhoto = new FormData();
+      changePhoto.append('photo', photo.photo[0]);
+      await axios
+        .put(`${process.env.NEXT_PUBLIC_API_URL}/profile/${props.id}`, changePhoto, {
+          headers: {
+            token: props.token
+          }
+        })
+        .then(res => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Sucess update profile!',
+            showConfirmButton: false,
+            timer: 1800
+          });
+          router.push('/profile');
+        })
+        .catch(err => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Failed update profile!',
+            showConfirmButton: false,
+            timer: 1800
+          });
+        });
+      return;
+    }
 
     await axios
-      .put(
-        `${process.env.NEXT_PUBLIC_API_URL}/profile/${props.id}`,
-        changePhoto,
-        {
-          headers: {
-            token: props.token,
-          },
+      .put(`${process.env.NEXT_PUBLIC_API_URL}/users/${props.id}`, getForm, {
+        headers: {
+          token: props.token
         }
-      )
-      .then((res) => {
-        console.log(res);
+      })
+      .then(res => {
+        res;
         router.push('/profile');
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
 
-    // await axios
-    //   .put(`${process.env.NEXT_PUBLIC_API_URL}/users/${props.id}`, formData, {
-    //     headers: {
-    //       token: props.token,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     router.push('/profile');
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    await axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/skills`, body, {
+        headers: {
+          token: props.token
+        }
+      })
+      .then(res => {
+        res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
-    // await axios
-    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/skills`, body, {
-    //     headers: {
-    //       token: props.token,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    await axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/experience`, getExperience, {
+        headers: {
+          token: props.token
+        }
+      })
+      .then(res => {
+        res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
-    // await axios
-    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/experience`, expData, {
-    //     headers: {
-    //       token: props.token,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    // await axios
-    //   .post(`${process.env.NEXT_PUBLIC_API_URL}/portfolio`, portoData, {
-    //     headers: {
-    //       token: props.token,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    await axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/portfolio`, getPortfolio, {
+        headers: {
+          token: props.token
+        }
+      })
+      .then(res => {
+        console.log(res);
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucess update profile!',
+          showConfirmButton: false,
+          timer: 1800
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   return (
@@ -353,40 +320,25 @@ const edit = (props) => {
               <div className={styles.boxInfo}>
                 <div>
                   <div className={styles.profile}>
-                    <Image
-                      src={img}
-                      width={150}
-                      height={150}
-                      className={styles.profile}
-                    />
+                    <Image src={img} width={150} height={150} className={styles.profile} />
                     <label htmlFor="profile" className={styles.changeProfile}>
                       Change photo
                     </label>
-                    <input
-                      id="profile"
-                      type="file"
-                      onChange={(e) => onChangeImage(e, 'photo')}
-                      hidden
-                    ></input>
+                    <input id="profile" type="file" onChange={e => onChangeImage(e, 'photo')} hidden></input>
                   </div>
                 </div>
                 <h3 className={styles.name}>{getUser.user.name}</h3>
                 <p className={styles.profession}>{getUser.user.position}</p>
                 <div className={styles.location}>
                   <Image src="/location.svg" width={20} height={20} />
-                  <p className={styles.textLocation}>
-                    {getUser.user.address || 'none'}
-                  </p>
+                  <p className={styles.textLocation}>{getUser.user.address || 'none'}</p>
                 </div>
                 <p className={styles.job}>{getUser.user.job_desk}</p>
               </div>
-              <button className={styles.btnOne} onClick={(e) => onClick(e)}>
+              <button className={styles.btnOne} onClick={e => onClick(e)}>
                 Simpan
               </button>
-              <button
-                className={styles.btnTwo}
-                onClick={() => router.push('/profile')}
-              >
+              <button className={styles.btnTwo} onClick={() => router.push('/profile')}>
                 Batal
               </button>
             </div>
@@ -397,45 +349,45 @@ const edit = (props) => {
                 <Input
                   title="Nama lengkap"
                   placeholder="Masukan nama lengkap"
-                  onChange={(e) => onChange(e, 'name')}
+                  onChange={e => onChange(e, 'name')}
                   defaultValue={getUser.user.name}
                   type="input"
                 />
                 <Input
                   title="Job desk"
                   placeholder="Masukan job desk"
-                  onChange={(e) => onChange(e, 'jobDesk')}
+                  onChange={e => onChange(e, 'jobDesk')}
                   defaultValue={getUser.user.job_desk}
                 />
                 <Input
                   title="Masukan domisili"
                   placeholder="Masukan domisili"
-                  onChange={(e) => onChange(e, 'address')}
+                  onChange={e => onChange(e, 'address')}
                   defaultValue={getUser.user.address}
                 />
                 <Input
                   title="Tempat kerja"
                   placeholder="Masukan tempat kerja"
-                  onChange={(e) => onChange(e, 'workplace')}
+                  onChange={e => onChange(e, 'workplace')}
                   defaultValue={getUser.user.workplace}
                 />
                 <Input
                   title="Instagram"
                   placeholder="Masukan nama instagram"
-                  onChange={(e) => onChange(e, 'instagram')}
+                  onChange={e => onChange(e, 'instagram')}
                   defaultValue={getUser.user.instagram}
                 />
                 <Input
                   title="Linkedin"
                   placeholder="Masukan nama linkedin"
-                  onChange={(e) => onChange(e, 'linkedin')}
+                  onChange={e => onChange(e, 'linkedin')}
                   defaultValue={getUser.user.linkedin}
                 />
                 <label className={styles.label}>Deskripsi singkat</label>
                 <textarea
                   className={styles.textArea}
                   placeholder="Deskripsikan pekerjaan anda"
-                  onChange={(e) => onChange(e, 'description')}
+                  onChange={e => onChange(e, 'description')}
                   defaultValue={getUser.user.description}
                 />
               </div>
@@ -446,7 +398,7 @@ const edit = (props) => {
                   isMulti
                   name="skill"
                   options={option}
-                  onChange={(e) => onSkill(e, 'value')}
+                  onChange={e => onSkill(e, 'value')}
                   defaultValue={getSkill}
                 />
               </div>
@@ -458,30 +410,27 @@ const edit = (props) => {
                     <Input
                       title="Nama perusahaan"
                       placeholder="Masukan nama perusahaan"
-                      onChange={(e) => onChange(e, 'company')}
+                      onChange={e => onChangeExp(e, 'company')}
                     />
                   </div>
                   <div className="col-md-6">
-                    <Input
-                      title="Bulan/tahun"
-                      type="date"
-                      onChange={(e) => onChange(e, 'resignDate')}
-                    />
+                    <Input title="Bulan/tahun" type="date" onChange={e => onChangeExp(e, 'resignDate')} />
                   </div>
                   <div className="col-md-12">
                     <Input
                       title="Profession"
                       placeholder="Masukan professi"
                       type="input"
-                      onChange={(e) => onChange(e, 'profession')}
+                      onChange={e => onChangeExp(e, 'profession')}
                     />
                   </div>
                   <div className="col-md-12">
                     <Input
                       id="experience"
-                      type="file"
-                      onChange={(e) => addPhotoExp(e, 'photo')}
-                      hidden
+                      type="text"
+                      title="Photo"
+                      placeholder="Masukan link photo"
+                      onChange={e => onChangeExp(e, 'photo')}
                     />
                   </div>
                 </div>
@@ -489,26 +438,26 @@ const edit = (props) => {
                 <textarea
                   className={styles.textArea}
                   placeholder="Deskripsikan pekerjaan anda"
-                  onChange={(e) => onChange(e, 'descriptionExp')}
+                  onChange={e => onChangeExp(e, 'description')}
                 />
                 <hr />
                 <button className={styles.btnAdd} onClick={addCard}>
                   Tambah pengalaman kerja
                 </button>
               </div>
-              {getValuCard}
+              {getValueCard}
               <div className={styles.boxCard}>
                 <h3 className={styles.titleData}>Portofolio</h3>
                 <hr />
                 <Input
                   title="Nama aplikasi"
                   placeholder="Masukan nama aplikasi"
-                  onChange={(e) => onChange(e, 'title')}
+                  onChange={e => onChangePorto(e, 'title')}
                 />
                 <Input
                   title="Link repository"
                   placeholder="Masukan link repository"
-                  onChange={(e) => onChange(e, 'repository')}
+                  onChange={e => onChangePorto(e, 'repository')}
                 />
                 <div className="row mt-2">
                   <div className="col-md-3">
@@ -517,7 +466,7 @@ const edit = (props) => {
                       type="radio"
                       name="app"
                       value="Mobile App"
-                      onChange={(e) => onChange(e, 'aplication')}
+                      onChange={e => onChangePorto(e, 'aplication')}
                     />
                     <label htmlFor="web" className={styles.appLabel}>
                       Aplikasi mobile
@@ -529,7 +478,7 @@ const edit = (props) => {
                       type="radio"
                       name="app"
                       value="Web App"
-                      onChange={(e) => onChange(e, 'aplication')}
+                      onChange={e => onChangePorto(e, 'aplication')}
                     />
                     <label htmlFor="aplikasi" className={styles.appLabel}>
                       Aplikasi web
@@ -537,9 +486,10 @@ const edit = (props) => {
                   </div>
                 </div>
                 <Input
-                  type="file"
-                  placeholder="Masukan file"
-                  onChange={(e) => onPhotoPorto(e, 'photo')}
+                  type="text"
+                  title="Photo"
+                  placeholder="Masukan link photo"
+                  onChange={e => onChangePorto(e, 'photo')}
                 />
                 <hr />
                 <button className={styles.btnAdd} onClick={addCardPortofolio}>
