@@ -1,0 +1,109 @@
+.container {
+  position: relative;
+  background-color: #e5e5e5;
+}
+
+.boxMessage {
+  position: relative;
+  padding: 50px 0;
+}
+
+.boxUser {
+  background-color: #fff;
+  padding: 30px 0;
+  border-radius: 10px;
+  height: 550px;
+}
+
+.title {
+  margin: 0 20px;
+  font-size: 18px;
+  font-size: medium;
+}
+
+.boxInfo {
+  padding: 5px 20px;
+  display: flex;
+}
+
+.profile {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.boxTitleName {
+  padding: 0px 10px;
+}
+
+.titleName {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: reds;
+}
+
+.message {
+  color: rgba(155, 155, 155, 1);
+  font-size: 14px;
+
+  margin-top: -10px;
+}
+
+.containerMessage {
+  background-color: #fff;
+  height: 550px;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.boxInfoUser {
+  display: flex;
+  margin: 0 20px;
+}
+
+.profileUser {
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+}
+
+.hr {
+  margin-top: 5px;
+}
+
+.boxInput {
+  margin-top: 410px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  color: rgba(158, 160, 165, 1);
+  width: 650px;
+  border-radius: 23px;
+  border: solid 1px #e2e5ed;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.input:focus {
+  outline: #5e50a1 1px solid;
+  border: none;
+  color: rgba(31, 42, 54, 1);
+}
+
+.send {
+  background-color: #5e50a1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 33px;
+  border: none;
+}

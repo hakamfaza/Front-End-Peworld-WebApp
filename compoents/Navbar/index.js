@@ -10,7 +10,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar shadow-sm">
         <div className="container-fluid">
-          <Link href="/">
+          <Link href="/home">
             <div className={styles.logo}>
               <Image src="/logo-purple.svg" width={125} height={30} />
             </div>

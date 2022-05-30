@@ -9,6 +9,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { FiLinkedin } from 'react-icons/fi';
 import { BsTelephone } from 'react-icons/bs';
 import Experience from '../../compoents/Card/experience';
+import Swal from 'sweetalert2';
 
 export async function getServerSideProps(context) {
   const { token, id } = context.req.cookies;
@@ -51,6 +52,23 @@ const Profile = (props) => {
     router.push('/profile/editrecruiter');
   };
 
+  const onLogout = () => {
+    Swal.fire({
+      title: 'Do you want to logout?',
+      showDenyButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No',
+    }).then((res) => {
+      if (res.isConfirmed) {
+        Swal.fire('Logout!', '', 'success');
+        document.cookie = `token=;path/`;
+        document.cookie = `id=;path/`;
+        document.cookie = `isRecruiter=;path/`;
+        router.push('/login');
+      }
+    });
+  };
+
   const img = getUser.user.photo
     ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
     : '/profile.png';
@@ -84,7 +102,7 @@ const Profile = (props) => {
                 <button className={styles.btnR} onClick={() => onEdit()}>
                   Edit profile
                 </button>
-                <button className={styles.btnOut} onClick={() => onEdit()}>
+                <button className={styles.btnOut} onClick={() => onLogout()}>
                   Logout
                 </button>
                 <div className={styles.boxContact}>
