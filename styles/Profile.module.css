@@ -1,13 +1,12 @@
 .container {
   position: relative;
-  background-color: #E5E5E5;
-  height: 150vh;
+  background-color: #e5e5e5;
 }
 
-.containerEdit {
+.containerR {
   position: relative;
-  background-color: #E5E5E5;
-  height: 300vh;
+  background-color: #e5e5e5;
+  margin-top: 100px;
 }
 
 .divOne {
@@ -16,29 +15,57 @@
   height: 200px;
 }
 
+.divOneR {
+  background-color: rgba(94, 80, 161, 1);
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
 .boxProfile {
-  position: absolute;
-  top: 50px;
-  width: 80%;
+  margin-top: -100px;
+  width: 100%;
+  z-index: 9;
+  padding-bottom: 100px;
 }
 
 .boxInfo {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color:rgba(255, 255, 255, 1);
-  padding: 50px 15px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 50px 30px;
+  border-radius: 8px;
+}
+
+.boxInfoR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 1);
+  margin-top: 50px;
+  border-radius: 8px;
 }
 
 .profile {
   object-fit: cover;
   border-radius: 75px;
-  margin-left: 30px;
+  margin-left: 15px;
+}
+
+.profileR {
+  object-fit: cover;
+  border-radius: 75px;
+  margin-top: -75px;
+  margin-left: 15px;
 }
 
 .name {
   color: rgba(31, 42, 54, 1);
   font-size: 22px;
+  margin-top: 10px;
 }
 
 .location {
@@ -47,8 +74,22 @@
   margin-top: -20px;
 }
 
+.input {
+  width: 100%;
+  padding: 9px 15px;
+  border-radius: 3px;
+  border: rgba(226, 229, 237, 1) 1px solid;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgba(133, 141, 150, 1);
+}
+
+.input:focus {
+  outline: none;
+  color: #000;
+}
+
 .textLocation {
-  color:rgba(158, 160, 165, 1);
+  color: rgba(158, 160, 165, 1);
   margin-top: 15px;
   margin-left: 8px;
   font-size: 14px;
@@ -61,67 +102,102 @@
 }
 
 .job {
-  font-size: 14px;
+  font-size: 16px;
+  margin-top: -10px;
   color: rgba(158, 160, 165, 1);
+}
+
+.jobR {
+  font-size: 16px;
+  /* margin-top: 10px; */
 }
 
 .description {
   color: rgba(158, 160, 165, 1);
   font-size: 14px;
 }
+.descriptionR {
+  color: rgba(158, 160, 165, 1);
+  font-size: 14px;
+  max-width: 500px;
+  text-align: center;
+}
 
 .btn {
   background-color: rgba(94, 80, 161, 1);
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 2px;
   padding: 5px;
   margin-top: 25px;
 }
 
+.btnR {
+  background-color: rgba(94, 80, 161, 1);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  margin-top: 10px;
+  width: 300px;
+}
+
+.btnOut {
+  color: rgba(94, 80, 161, 1);
+  background-color: #fff;
+  border: rgba(94, 80, 161, 1) 1px solid;
+  border-radius: 2px;
+  padding: 8px;
+  margin-top: 20px;
+  width: 300px;
+}
+
 .btnOne {
   background-color: rgba(94, 80, 161, 1);
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 2px;
   padding: 8px;
   margin-top: 25px;
-  width: 250px;
+  width: 260px;
 }
 
 .btnTwo {
   color: rgba(94, 80, 161, 1);
-  background-color: #FFF;
+  background-color: #fff;
   border: none;
   border-radius: 2px;
   padding: 8px;
   margin-top: 15px;
-  width: 250px;
+  width: 260px;
 }
 
-
-
 .titleSkill {
-  margin-top: 30px;
+  margin-top: 10px;
   color: rgba(31, 42, 54, 1);
   font-size: 22px;
 }
 
 .icon {
-  font-size: 22px;
+  font-size: 18px;
   color: rgba(155, 155, 155, 1);
-  margin-right: 15px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.boxContact {
+  margin-top: 30px;
+  margin-bottom: 100px;
 }
 
 .contactTop {
-  margin-top: 50px;
   display: flex;
+  padding: 0px 10px;
 }
-
 
 .contact {
   display: flex;
-  margin-top: 10px;
+  padding: 0px 10px;
 }
 
 .textContact {
@@ -132,6 +208,7 @@
   padding: 15px;
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
 }
 
 .titleAction {
@@ -150,6 +227,7 @@
 .boxPorto {
   position: relative;
   padding: 5px;
+  border-radius: 8px;
 }
 
 .textPorto {
@@ -160,6 +238,7 @@
   padding: 15px;
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
 }
 
 .label {
@@ -168,22 +247,24 @@
 }
 
 .textArea {
-  margin-top: -10px;
   width: 100%;
   padding: 15px;
   border: rgba(226, 229, 237, 1) solid 1px;
   min-height: 150px;
+  color: rgba(133, 141, 150, 1);
 }
 
 .textArea:focus {
   outline: none;
+  color: #000;
 }
 
-.boxSkill {
+.boxCard {
   margin-top: 50px;
   padding: 15px;
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
 }
 
 .appLabel {
@@ -192,8 +273,8 @@
 
 .btnAdd {
   color: rgba(251, 176, 23, 1);
-  background-color: #FFF;
-  border: #FBB017 solid 1px;
+  background-color: #fff;
+  border: #fbb017 solid 1px;
   padding: 15px;
   width: 100%;
   margin-top: 20px;
@@ -205,6 +286,14 @@
   font-size: 22px;
 }
 
-.inputImg {
-  
+.changeProfile {
+  background-color: rgba(94, 80, 161, 1);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 5px;
 }

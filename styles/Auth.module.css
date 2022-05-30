@@ -1,6 +1,6 @@
 .container {
   padding: 44px 50px !important;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
 
 .bgImage {
@@ -9,7 +9,7 @@
 }
 
 .bgImage::after {
-  content: "";
+  content: '';
   background-color: rgba(94, 80, 161, 0.7);
   position: absolute;
   top: 0;
@@ -57,7 +57,7 @@
   height: 950px;
 }
 
-.formWorker{
+.formWorker {
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -110,10 +110,23 @@
   color: rgba(255, 255, 255, 1);
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   border: none;
+  font-weight: 600;
   margin-top: 20px;
+  border-radius: 3px;
 }
 
-.btnRegister{
+.btnRecruiter {
+  color: rgba(251, 176, 23, 1);
+  padding: 8px;
+  background-color: #fff;
+  border: rgba(251, 176, 23, 1) 1px solid;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 70px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.btnRegister {
   background-color: rgba(251, 176, 23, 1);
   padding: 8px;
   color: rgba(255, 255, 255, 1);

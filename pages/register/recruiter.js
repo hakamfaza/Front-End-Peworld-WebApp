@@ -6,7 +6,7 @@ import Link from "next/link";
 import AuthInput from "../../compoents/Input";
 import axios from "axios";
 
-export default function registerWorker() {
+export default function register() {
   const router = useRouter()
   const [getForm, setForm] = useState({
     name: '',
@@ -38,17 +38,18 @@ export default function registerWorker() {
           recruiter: getForm.recruiter,
           password: getForm.password
         }
-        axios.post('https://peworld.herokuapp.com/register', body, {}).then((res) => {
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/register`, body, {}).then((res) => {
           console.log(res)
           router.push('/login')
 
         }).catch((err) => {
-          console.log(err)
+          console.log(err.message)
         })
       } else {
         alert('Password not same!')
       }
   }
+
   return (
     <div className={styles.container} >
     <div className="container-fuild">
@@ -67,16 +68,18 @@ export default function registerWorker() {
           </div>
         </div>
         <div className="col-md-6">
-          <div className={styles.formWorker}>
+          <div className={styles.form}>
             <h1 className={styles.formTitle} >Halo, Pewpeople</h1>
             <p className={styles.formText} >Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
             <div className={styles.containerForm} >
-                <AuthInput title="Nama" placeholder="Masukan nama lengakap" onChange={(e) => onChange(e, 'name')}  />
-                <AuthInput title="Email" type="email" name="email" placeholder="Masukan alamat email" onChange={(e) => onChange(e, 'email')} />
-                <AuthInput title="No handphone" type="text" placeholder="Masukan no handphone" onChange={(e) => onChange(e, 'phone')} />
-                <AuthInput title="Kata sandi" type="password" placeholder="Masukan kata sandi" onChange={(e) => onChange(e, 'password')}  />
+                <AuthInput title="Nama" placeholder="Masukan nama lengakap" onChange={(e) => onChange(e, 'name')} />
+                <AuthInput title="Email" type="email" name="email" placeholder="Masukan alamat email" onChange={(e) => onChange(e, 'email')}/>
+                <AuthInput title="Perusahaan" type="text" placeholder="Masukan nama perusahaan" onChange={(e) => onChange(e, 'company')}/>
+                <AuthInput title="Jabatan" type="text" placeholder="Posisi di perusahaan" onChange={(e) => onChange(e, 'position')} />
+                <AuthInput title="No handphone" type="text" placeholder="Masukan no handphone" onChange={(e) => onChange(e, 'phone')}/>
+                <AuthInput title="Kata sandi" type="password" placeholder="Masukan kata sandi" onChange={(e) => onChange(e, 'password')} />
                 <AuthInput title="Konfirmasi kata sandi" type="password" placeholder=" Masukan konfirmasi kata sandi" onChange={(e) => onChange(e, 'confirm')} />
-                <button className={styles.btnRegister} onClick={(e) => onClick(e)}>Masuk</button>
+                <button className={styles.btnRegister} onClick={(e) => onClick(e)} >Masuk</button>
                 <div className={styles.to}>
                 <p>Anda sudah punya akun?</p><Link href="/login"><p className={styles.toPage} >Masuk disini</p></Link>
               </div>

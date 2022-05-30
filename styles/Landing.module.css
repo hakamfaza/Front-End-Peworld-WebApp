@@ -1,0 +1,31 @@
+.container {
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 50px;
+}
+
+.title {
+  color: rgba(31, 42, 54, 1);
+  font-size: 44px;
+}
+
+.text {
+  color: rgba(70, 80, 92, 1);
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.btn {
+  background-color: rgba(94, 80, 161, 1);
+  color: #fff;
+  padding: 15px 24px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 55px;
+}
