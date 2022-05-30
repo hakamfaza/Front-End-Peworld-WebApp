@@ -18,7 +18,11 @@ export default function Navbar() {
           <div className="d-flex">
             <div className={styles.boxSide}>
               <IoMdNotificationsOutline className={styles.notif} />
-              <HiOutlineMail className={styles.mail} />
+              <Link href="/message">
+                <div>
+                  <HiOutlineMail className={styles.mail} />
+                </div>
+              </Link>
               <Link href="/profile">
                 <div>
                   <Image

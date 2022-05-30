@@ -14,11 +14,13 @@
 .notif {
   font-size: 24px;
   color: rgba(155, 155, 155, 1);
+  cursor: pointer;
 }
 
 .mail {
   font-size: 24px;
   color: rgba(155, 155, 155, 1);
+  cursor: pointer;
 }
 
 .profile {

@@ -60,11 +60,11 @@ const Profile = (props) => {
       denyButtonText: 'No',
     }).then((res) => {
       if (res.isConfirmed) {
-        Swal.fire('Logout!', '', 'success');
         document.cookie = `token=;path/`;
         document.cookie = `id=;path/`;
         document.cookie = `isRecruiter=;path/`;
         router.push('/login');
+        Swal.fire('Logout!', '', 'success');
       }
     });
   };
