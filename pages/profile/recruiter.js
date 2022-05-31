@@ -60,9 +60,9 @@ const Profile = props => {
       denyButtonText: 'No'
     }).then(res => {
       if (res.isConfirmed) {
-        document.cookie = `token=;path/`;
-        document.cookie = `id=;path/`;
-        document.cookie = `isRecruiter=;path/`;
+        document.cookie = `id=;`;
+        document.cookie = `isRecruiter=;`;
+        document.cookie = 'token=; expires=2000-10-16T19:22:35.000Z';
         router.push('/login');
         Swal.fire('Logout!', '', 'success');
       }

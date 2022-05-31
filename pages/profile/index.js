@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import {} from 'next-cookies';
 import styles from '../../styles/Profile.module.css';
 import Image from 'next/image';
 import Skills from '../../compoents/Card/skills';
@@ -22,7 +23,6 @@ export async function getServerSideProps(context) {
           token
         }
       });
-      console.log(response.url);
       return {
         data: response.data.data,
         error: false,
@@ -60,9 +60,9 @@ const Profile = props => {
       denyButtonText: 'No'
     }).then(res => {
       if (res.isConfirmed) {
-        document.cookie = `token=;path/`;
-        document.cookie = `id=;path/`;
-        document.cookie = `isRecruiter=;path/`;
+        document.cookie = `id=;`;
+        document.cookie = `isRecruiter=;`;
+        document.cookie = 'token=; expires=2000-10-16T19:22:35.000Z';
         router.push('/login');
         Swal.fire('Logout!', '', 'success');
       }
