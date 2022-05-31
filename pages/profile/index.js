@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -8,6 +9,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { FiGithub, FiGitlab } from 'react-icons/fi';
 import Experience from '../../compoents/Card/experience';
+import Swal from 'sweetalert2';
 
 export async function getServerSideProps(context) {
   const { token, id } = context.req.cookies;
@@ -50,6 +52,23 @@ const Profile = props => {
     router.push('/profile/edit');
   };
 
+  const onLogout = () => {
+    Swal.fire({
+      title: 'Do you want to logout?',
+      showDenyButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No'
+    }).then(res => {
+      if (res.isConfirmed) {
+        document.cookie = `token=;path/`;
+        document.cookie = `id=;path/`;
+        document.cookie = `isRecruiter=;path/`;
+        router.push('/login');
+        Swal.fire('Logout!', '', 'success');
+      }
+    });
+  };
+
   const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png';
   return (
     <div className={styles.container}>
@@ -74,6 +93,9 @@ const Profile = props => {
                 <p className={styles.description}>{getUser.user.description}</p>
                 <button className={styles.btn} onClick={() => onEdit()}>
                   Edit
+                </button>
+                <button className={styles.btnOutW} onClick={() => onLogout()}>
+                  Logout
                 </button>
                 <h5 className={styles.titleSkill}>Skill</h5>
                 <div className="row">

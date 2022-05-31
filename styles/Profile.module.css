@@ -152,6 +152,17 @@
   width: 300px;
 }
 
+.btnOutW {
+  color: rgba(94, 80, 161, 1);
+  background-color: #fff;
+  border: rgba(94, 80, 161, 1) 1px solid;
+  border-radius: 2px;
+  padding: 5px;
+  margin-top: 20px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
 .btnOne {
   background-color: rgba(94, 80, 161, 1);
   color: #fff;
