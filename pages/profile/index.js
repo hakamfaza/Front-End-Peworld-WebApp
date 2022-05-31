@@ -147,7 +147,7 @@ const Profile = props => {
                           return (
                             <div className="col-md-4 mt-3" key={index}>
                               <div className={styles.boxPorto}>
-                                <Image src={`${item.photo}`} width={250} height={150} />
+                                <Image src={`${item.photo}`} width={250} height={150} className={styles.imgPorto} />
                                 <p className={styles.textPorto}>{item.title}</p>
                               </div>
                             </div>
