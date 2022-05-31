@@ -87,7 +87,7 @@ const Profile = props => {
                 <p className={styles.profession}>{getUser.user.job_desk}</p>
                 <div className={styles.location}>
                   <Image src="/location.svg" width={16} height={16} />
-                  <p className={styles.textLocation}>{getUser.user.address}</p>
+                  <p className={styles.textLocation}>{getUser.user.address || 'none'}</p>
                 </div>
                 <p className={styles.job}>{getUser.user.workplace}</p>
                 <p className={styles.description}>{getUser.user.description}</p>
