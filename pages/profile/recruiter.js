@@ -75,7 +75,7 @@ const Profile = props => {
       <div className="container">
         <div className={styles.boxProfile}>
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 col-sm-12">
               <div className={styles.boxInfoR}>
                 <div className={styles.divOneR} />
                 <div>

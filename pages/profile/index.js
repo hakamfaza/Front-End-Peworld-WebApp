@@ -78,10 +78,8 @@ const Profile = props => {
           <div className="row">
             <div className="col-md-3">
               <div className={styles.boxInfo}>
-                <div>
-                  <div className={styles.profile}>
-                    <Image src={img} width={150} height={150} className={styles.profile} />
-                  </div>
+                <div className={styles.profile}>
+                  <Image src={img} width={150} height={150} className={styles.profile} />
                 </div>
                 <h3 className={styles.name}>{getUser.user.name}</h3>
                 <p className={styles.profession}>{getUser.user.job_desk}</p>
@@ -100,27 +98,27 @@ const Profile = props => {
                 <h5 className={styles.titleSkill}>Skill</h5>
                 <div className="row">
                   {getUser.skills.map((item, index) => (
-                    <div className="col-sm-4 mt-2" key={index}>
+                    <div className="col-4 mt-2" key={index}>
                       <Skills skill={item.skill} />
                     </div>
                   ))}
-                  <div className={styles.boxContact}>
-                    <div className={styles.contact}>
-                      <HiOutlineMail className={styles.icon} />
-                      <p className={styles.textContact}>{getUser.user.email || 'lorem@gmail.com'}</p>
-                    </div>
-                    <div className={styles.contact}>
-                      <AiOutlineInstagram className={styles.icon} />
-                      <p className={styles.textContact}>{getUser.user.instagram || 'lorem@ipsum'}</p>
-                    </div>
-                    <div className={styles.contact}>
-                      <FiGithub className={styles.icon} />
-                      <p className={styles.textContact}>lorem@gmail.com</p>
-                    </div>
-                    <div className={styles.contact}>
-                      <FiGitlab className={styles.icon} />
-                      <p className={styles.textContact}>lorem@gmail.com</p>
-                    </div>
+                </div>
+                <div className={styles.boxContact}>
+                  <div className={styles.contact}>
+                    <HiOutlineMail className={styles.icon} />
+                    <p className={styles.textContact}>{getUser.user.email || 'lorem@gmail.com'}</p>
+                  </div>
+                  <div className={styles.contact}>
+                    <AiOutlineInstagram className={styles.icon} />
+                    <p className={styles.textContact}>{getUser.user.instagram || 'lorem@ipsum'}</p>
+                  </div>
+                  <div className={styles.contact}>
+                    <FiGithub className={styles.icon} />
+                    <p className={styles.textContact}>lorem@gmail.com</p>
+                  </div>
+                  <div className={styles.contact}>
+                    <FiGitlab className={styles.icon} />
+                    <p className={styles.textContact}>lorem@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -128,14 +126,14 @@ const Profile = props => {
             <div className="col-md-9">
               <div className={styles.boxPortfolio}>
                 <div className="m-4">
-                  <ul className="nav nav-tabs" id="myTab">
+                  <ul className="nav mb-3" id="myTab">
                     <li className="nav-item">
-                      <a href="#home" className="nav-link active" data-bs-toggle="tab">
+                      <a href="#home" className={styles.titleExp} data-bs-toggle="tab">
                         Portfolio
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a href="#profile" className="nav-link" data-bs-toggle="tab">
+                      <a href="#profile" className={styles.titleExp} data-bs-toggle="tab">
                         Pengalaman kerja
                       </a>
                     </li>
