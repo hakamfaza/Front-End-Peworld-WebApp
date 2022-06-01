@@ -54,6 +54,7 @@
   border-radius: 75px;
   margin-left: 15px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -349,5 +350,17 @@
 
   .titleExp {
     font-size: 18px;
+  }
+  .btnOne {
+    width: 100%;
+    margin-top: -10px;
+  }
+
+  .btnTwo {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .descriptionR {
+    max-width: 300px;
   }
 }

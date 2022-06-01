@@ -318,14 +318,12 @@ const edit = props => {
           <div className="row">
             <div className="col-md-3">
               <div className={styles.boxInfo}>
-                <div>
-                  <div className={styles.profile}>
-                    <Image src={img} width={150} height={150} className={styles.profile} />
-                    <label htmlFor="profile" className={styles.changeProfile}>
-                      Change photo
-                    </label>
-                    <input id="profile" type="file" onChange={e => onChangeImage(e, 'photo')} hidden></input>
-                  </div>
+                <div className={styles.profile}>
+                  <Image src={img} width={150} height={150} className={styles.profile} />
+                  <label htmlFor="profile" className={styles.changeProfile}>
+                    Change photo
+                  </label>
+                  <input id="profile" type="file" onChange={e => onChangeImage(e, 'photo')} hidden></input>
                 </div>
                 <h3 className={styles.name}>{getUser.user.name}</h3>
                 <p className={styles.profession}>{getUser.user.position}</p>
