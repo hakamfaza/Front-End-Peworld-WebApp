@@ -9,7 +9,7 @@ export default function Card(params) {
         <div className={styles.boxCard}>
           <div className="col-md-2 col-sm-12">
             <div className={styles.boxImage}>
-              <Image src={`${params.image}`} width={80} height={80} className={styles.user} />
+              <Image src={`${params.image}`} width={80} height={80} className={styles.user} alt="" />
             </div>
           </div>
           <div className="col-md-8 col-sm-12">
@@ -17,7 +17,7 @@ export default function Card(params) {
               <h3 className={styles.name}>{params.name}</h3>
               <h6 className={styles.titleProfession}>{params.proffesion}</h6>
               <div className={styles.location}>
-                <Image src="/location.svg" width={16} height={16} className={styles.icon} />
+                <Image src="/location.svg" width={16} height={16} className={styles.icon} alt="" />
                 <p className={styles.textLocation}>{params.address}</p>
               </div>
               <div className={styles.boxSkill}>

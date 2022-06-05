@@ -6,7 +6,7 @@ export default function Experience(params) {
   return (
     <div className={styles.boxExperience}>
       <div>
-        <Image src={`${params.image}`} width={200} height={200} className={styles.img} />
+        <Image src={`${params.image}`} width={200} height={200} className={styles.img} alt="" />
       </div>
       <div className={styles.boxExp}>
         <h5 className={styles.titleJob}>{params.job}</h5>

@@ -319,7 +319,7 @@ const edit = props => {
             <div className="col-md-3">
               <div className={styles.boxInfo}>
                 <div className={styles.profile}>
-                  <Image src={img} width={150} height={150} className={styles.profile} />
+                  <Image src={img} width={150} height={150} className={styles.profile} alt="profile" />
                   <label htmlFor="profile" className={styles.changeProfile}>
                     Change photo
                   </label>
@@ -328,7 +328,7 @@ const edit = props => {
                 <h3 className={styles.name}>{getUser.user.name}</h3>
                 <p className={styles.profession}>{getUser.user.position}</p>
                 <div className={styles.location}>
-                  <Image src="/location.svg" width={20} height={20} />
+                  <Image src="/location.svg" width={20} height={20} alt="location" />
                   <p className={styles.textLocation}>{getUser.user.address || 'none'}</p>
                 </div>
                 <p className={styles.job}>{getUser.user.job_desk}</p>

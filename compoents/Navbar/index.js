@@ -12,7 +12,7 @@ export default function Navbar() {
         <div className="container-fluid">
           <Link href="/home">
             <div className={styles.logo}>
-              <Image src="/logo-purple.svg" width={125} height={30} />
+              <Image src="/logo-purple.svg" width={125} height={30} alt="" />
             </div>
           </Link>
           <div className="d-flex">
@@ -25,12 +25,7 @@ export default function Navbar() {
               </Link>
               <Link href="/profile">
                 <div>
-                  <Image
-                    src="/profile.png"
-                    width={26}
-                    height={26}
-                    className={styles.profile}
-                  />
+                  <Image src="/profile.png" width={26} height={26} className={styles.profile} alt="" />
                 </div>
               </Link>
             </div>

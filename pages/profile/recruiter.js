@@ -80,13 +80,13 @@ const Profile = props => {
                 <div className={styles.divOneR} />
                 <div>
                   <div className={styles.profileR}>
-                    <Image src={img} width={150} height={150} className={styles.profileR} />
+                    <Image src={img} width={150} height={150} className={styles.profileR} alt="profile" />
                   </div>
                 </div>
                 <h3 className={styles.name}>{getUser.user.name}</h3>
                 <p className={styles.profession}>{getUser.user.job_desk}</p>
                 <div className={styles.location}>
-                  <Image src="/location.svg" width={16} height={16} />
+                  <Image src="/location.svg" width={16} height={16} alt="location" />
                   <p className={styles.textLocation}>{getUser.user.address || 'none'}</p>
                 </div>
                 <p className={styles.descriptionR}>{getUser.user.description}</p>

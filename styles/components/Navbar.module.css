@@ -27,3 +27,12 @@
   border-radius: 20px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 576px) {
+  .boxSide {
+    margin-right: 15px;
+  }
+  .logo {
+    margin: 5px;
+  }
+}

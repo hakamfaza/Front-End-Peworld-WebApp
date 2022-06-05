@@ -60,10 +60,10 @@ export default function register() {
             <div className={styles.relative}>
               <div className={styles.bgImage}>
                 <div className={styles.logo}>
-                  <Image src="/logo.svg" width={86} height={25} className={styles.logo} />
+                  <Image src="/logo.svg" width={86} height={25} className={styles.logo} alt="logo" />
                 </div>
                 <div>
-                  <Image src="/image/agency.jpg" width={600} height={600} className={styles.image} />
+                  <Image src="/image/agency.jpg" width={600} height={600} className={styles.image} alt="agency" />
                 </div>
               </div>
               <h1 className={styles.title}>Temukan developer berbakat & terbaik di berbagai bidang keahlian</h1>
