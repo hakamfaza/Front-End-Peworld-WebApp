@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -17,7 +18,7 @@ export async function getServerSideProps(context) {
     const { id } = context.params;
     try {
       const response = await axios({
-        url: `https://peworld.herokuapp.com/users/${id}`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
         method: 'get',
         headers: {
           token
@@ -39,7 +40,7 @@ export async function getServerSideProps(context) {
   const getMyUser = async () => {
     try {
       const response = await axios({
-        url: `https://peworld.herokuapp.com/users/${myId}`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/${myId}`,
         method: 'get',
         headers: {
           token
