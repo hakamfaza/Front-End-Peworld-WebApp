@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -17,21 +18,21 @@ export async function getServerSideProps(context) {
     const { id } = context.params;
     try {
       const response = await axios({
-        url: `https://peworld.herokuapp.com/users/${id}`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
         method: 'get',
         headers: {
-          token,
-        },
+          token
+        }
       });
       return {
         data: response.data.data,
         error: false,
-        token: token || null,
+        token: token || null
       };
     } catch (error) {
       return {
         data: [],
-        error: true,
+        error: true
       };
     }
   };
@@ -39,21 +40,21 @@ export async function getServerSideProps(context) {
   const getMyUser = async () => {
     try {
       const response = await axios({
-        url: `https://peworld.herokuapp.com/users/${myId}`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/${myId}`,
         method: 'get',
         headers: {
-          token,
-        },
+          token
+        }
       });
       return {
         data: response.data.data,
         error: false,
-        token: token || null,
+        token: token || null
       };
     } catch (error) {
       return {
         data: [],
-        error: true,
+        error: true
       };
     }
   };
@@ -62,12 +63,12 @@ export async function getServerSideProps(context) {
     props: {
       data: [],
       users: await fetchApi(),
-      myUser: await getMyUser(),
-    },
+      myUser: await getMyUser()
+    }
   };
 }
 
-const profile = (props) => {
+const profile = props => {
   const [getUser, setUser] = useState(props.users.data);
   const myUser = props.myUser.data.user;
   const token = props.token;
@@ -75,29 +76,23 @@ const profile = (props) => {
 
   const sendMessage = async () => {
     const body = {
-      message: `Halo ${getUser.user.name}, saya ${myUser.name} dari company ${myUser.company} ingin mengundang kamu untuk bekerja di perusahaan kami. Silahkan hubungi no ${myUser.phone} atau email ke ${myUser.email}`,
+      message: `Halo ${getUser.user.name}, saya ${myUser.name} dari company ${myUser.company} ingin mengundang kamu untuk bekerja di perusahaan kami. Silahkan hubungi no ${myUser.phone} atau email ke ${myUser.email}`
     };
     await axios
-      .post(
-        `${process.env.NEXT_PUBLIC_API_URL}/message/${getUser.user.id}`,
-        body,
-        {
-          headers: {
-            token,
-          },
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/message/${getUser.user.id}`, body, {
+        headers: {
+          token
         }
-      )
-      .then((res) => {
+      })
+      .then(res => {
         console.log(res);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
 
-  const img = getUser.user.photo
-    ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}`
-    : '/profile.png';
+  const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png';
   return (
     <div className={styles.container}>
       <div className={styles.divOne} />
@@ -108,21 +103,14 @@ const profile = (props) => {
               <div className={styles.boxInfo}>
                 <div>
                   <div className={styles.profile}>
-                    <Image
-                      src={img}
-                      width={150}
-                      height={150}
-                      className={styles.profile}
-                    />
+                    <Image src={img} width={150} height={150} className={styles.profile} alt="profile" />
                   </div>
                 </div>
                 <h3 className={styles.name}>{getUser.user.name}</h3>
                 <p className={styles.profession}>{getUser.user.job_desk}</p>
                 <div className={styles.location}>
-                  <Image src="/location.svg" width={15} height={15} />
-                  <p className={styles.textLocation}>
-                    {getUser.user.address || 'none'}
-                  </p>
+                  <Image src="/location.svg" width={15} height={15} alt="location" />
+                  <p className={styles.textLocation}>{getUser.user.address || 'none'}</p>
                 </div>
                 <p className={styles.job}>{getUser.user.workplace}</p>
                 <p className={styles.description}>{getUser.user.description}</p>
@@ -138,15 +126,11 @@ const profile = (props) => {
                   ))}
                   <div className={styles.contactTop}>
                     <HiOutlineMail className={styles.icon} />
-                    <p className={styles.textContact}>
-                      {getUser.user.email || 'lorem@gmail.com'}
-                    </p>
+                    <p className={styles.textContact}>{getUser.user.email || 'lorem@gmail.com'}</p>
                   </div>
                   <div className={styles.contact}>
                     <AiOutlineInstagram className={styles.icon} />
-                    <p className={styles.textContact}>
-                      {getUser.user.instagram || 'lorem@gmail.com'}
-                    </p>
+                    <p className={styles.textContact}>{getUser.user.instagram || 'lorem@gmail.com'}</p>
                   </div>
                   <div className={styles.contact}>
                     <FiGithub className={styles.icon} />
@@ -164,20 +148,12 @@ const profile = (props) => {
                 <div className="m-4">
                   <ul className="nav nav-tabs" id="myTab">
                     <li className="nav-item">
-                      <a
-                        href="#home"
-                        className="nav-link active"
-                        data-bs-toggle="tab"
-                      >
+                      <a href="#home" className="nav-link active" data-bs-toggle="tab">
                         Portfolio
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a
-                        href="#profile"
-                        className="nav-link"
-                        data-bs-toggle="tab"
-                      >
+                      <a href="#profile" className="nav-link" data-bs-toggle="tab">
                         Pengalaman kerja
                       </a>
                     </li>
@@ -193,6 +169,7 @@ const profile = (props) => {
                                   src={`https://peworld.herokuapp.com/${item.photo}`}
                                   width={250}
                                   height={150}
+                                  alt="profile"
                                 />
                                 <p className={styles.textPorto}>{item.title}</p>
                               </div>
@@ -204,9 +181,7 @@ const profile = (props) => {
                     <div className="tab-pane fade" id="profile">
                       <div className="row">
                         {getUser.experience.map((item, index) => {
-                          const img = item.image
-                            ? `https://peworld.herokuapp.com/${item.photo}`
-                            : '/image/default.png';
+                          const img = item.image ? `https://peworld.herokuapp.com/${item.photo}` : '/image/default.png';
                           return (
                             <div className="col-md-12" key={index}>
                               <Experience

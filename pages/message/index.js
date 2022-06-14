@@ -15,12 +15,7 @@ const message = () => {
                 <hr />
                 <div className={styles.boxInfo}>
                   <div>
-                    <Image
-                      src="/nial.jpg"
-                      width={45}
-                      height={45}
-                      className={styles.profile}
-                    />
+                    <Image src="/nial.jpg" width={45} height={45} className={styles.profile} alt="" />
                   </div>
                   <div className={styles.boxTitleName}>
                     <h6 className={styles.titleName}>Jonas Adam</h6>
@@ -33,12 +28,7 @@ const message = () => {
               <div className={styles.containerMessage}>
                 <div className={styles.boxInfoUser}>
                   <div>
-                    <Image
-                      src="/nial.jpg"
-                      width={45}
-                      height={45}
-                      className={styles.profile}
-                    />
+                    <Image src="/nial.jpg" width={45} height={45} className={styles.profile} alt="" />
                   </div>
                   <div className={styles.profileUser}>
                     <h6 className={styles.titleName}>Jonas Adam</h6>
@@ -46,11 +36,7 @@ const message = () => {
                 </div>
                 <hr className={styles.hr} />
                 <div className={styles.boxInput}>
-                  <input
-                    type="text"
-                    className={styles.input}
-                    placeholder="type message..."
-                  ></input>
+                  <input type="text" className={styles.input} placeholder="type message..."></input>
                   <button className={styles.send}>
                     <FiSend />
                   </button>

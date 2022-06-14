@@ -53,6 +53,10 @@
   object-fit: cover;
   border-radius: 75px;
   margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .profileR {
@@ -150,6 +154,17 @@
   padding: 8px;
   margin-top: 20px;
   width: 300px;
+}
+
+.btnOutW {
+  color: rgba(94, 80, 161, 1);
+  background-color: #fff;
+  border: rgba(94, 80, 161, 1) 1px solid;
+  border-radius: 2px;
+  padding: 5px;
+  margin-top: 20px;
+  width: 200px;
+  margin-bottom: 10px;
 }
 
 .btnOne {
@@ -296,4 +311,56 @@
   cursor: pointer;
   margin-top: 10px;
   margin-left: 5px;
+}
+
+.imgPorto {
+  border-radius: 10px;
+}
+
+.titleExp {
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+  padding: 5px 0;
+  margin-right: 20px;
+}
+
+.titleExp:focus {
+  border-bottom: rgba(94, 80, 161, 1) 3px solid;
+}
+
+@media screen and (max-width: 576px) {
+  .boxProfile {
+    padding: 20px 20px 50px 20px;
+  }
+  .boxInfo {
+    margin-top: -50px;
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+  .name {
+    margin-top: 20px;
+  }
+  .btnOutW {
+    width: 100%;
+  }
+  .boxContact {
+    margin-bottom: 50px;
+  }
+
+  .titleExp {
+    font-size: 18px;
+  }
+  .btnOne {
+    width: 100%;
+    margin-top: -10px;
+  }
+
+  .btnTwo {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .descriptionR {
+    max-width: 300px;
+  }
 }

@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint --fix \"**/*.{js,jsx,ts,tsx}\"",
-    "prepare": "husky install"
+    "lint:fix": "eslint --fix \"**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "axios": "^0.27.2",
