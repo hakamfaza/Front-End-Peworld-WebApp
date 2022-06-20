@@ -138,7 +138,6 @@
 
 .profile {
   border-radius: 100%;
-  border: solid 10px red;
 }
 
 .information {
@@ -171,5 +170,8 @@
 @media screen and (max-width: 576px) {
   .boxCard {
     width: 100%;
+  }
+  .containerProfile {
+    margin-top: 20px;
   }
 }

@@ -121,3 +121,15 @@
   border-radius: 4px;
   margin-top: 40px;
 }
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 20px 10px;
+  }
+  .containerFourth {
+    padding: 50px;
+  }
+  .lastContainer {
+    padding: 30px 20px;
+  }
+}
