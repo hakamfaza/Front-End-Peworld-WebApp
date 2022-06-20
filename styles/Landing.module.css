@@ -6,8 +6,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   padding: 50px;
+}
+
+.sideContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px 50px 0;
+}
+
+.containerThrid {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerFourth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  background-color: #f6f7f8;
+  padding: 80px;
 }
 
 .title {
@@ -28,4 +47,77 @@
   border: none;
   border-radius: 5px;
   margin-top: 55px;
+}
+
+.list {
+  margin-top: 20px;
+}
+
+.titleTalent {
+  font-size: 32px;
+  color: #1f2a36;
+  font-weight: 500;
+}
+
+.description {
+  color: #46505c;
+}
+
+.titleAbout {
+  font-size: 36px;
+  font-weight: 400;
+  color: #1f2a36;
+}
+
+.boxProfile {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  margin: 40px 0;
+  justify-content: space-around;
+}
+
+.lastContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 150px;
+}
+
+.object {
+  background-color: rgba(94, 80, 161, 1);
+  width: 1000px;
+  height: 200px;
+  border-top-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 40px;
+}
+
+.boxLastTitle {
+  display: flex;
+  align-items: center;
+  height: 130px;
+}
+
+.lastTitle {
+  color: #f6f7f8;
+  font-weight: 400;
+  font-size: 36px;
+  max-width: 250px;
+}
+
+.boxBotton {
+  display: flex;
+  justify-content: end;
+}
+
+.btnWhite {
+  background-color: #fff;
+  color: #796eaf;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 40px;
 }

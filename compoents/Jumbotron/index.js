@@ -27,7 +27,7 @@ export default function Jumbotron() {
           </div>
           <div className="col-md-6">
             <div className={styles.container}>
-              <Image src="/image/jumbotron.png" width={500} height={500} alt="" />
+              <Image src="/image/second.png" width={500} height={500} alt="" />
             </div>
           </div>
         </div>
