@@ -224,6 +224,7 @@
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
+  min-height: 500px;
 }
 
 .titleAction {
@@ -237,16 +238,6 @@
 
 .containerPorto {
   margin-top: 20px;
-}
-
-.boxPorto {
-  position: relative;
-  padding: 5px;
-  border-radius: 8px;
-}
-
-.textPorto {
-  text-align: center;
 }
 
 .boxExperience {
@@ -313,10 +304,6 @@
   margin-left: 5px;
 }
 
-.imgPorto {
-  border-radius: 10px;
-}
-
 .titleExp {
   font-size: 20px;
   text-decoration: none;
@@ -362,5 +349,11 @@
   }
   .descriptionR {
     max-width: 300px;
+  }
+  .btnR {
+    width: 250px;
+  }
+  .btnOut {
+    width: 250px;
   }
 }

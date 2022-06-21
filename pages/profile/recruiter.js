@@ -3,12 +3,10 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import styles from '../../styles/Profile.module.css';
 import Image from 'next/image';
-import Skills from '../../compoents/Card/skills';
 import { HiOutlineMail } from 'react-icons/hi';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { FiLinkedin } from 'react-icons/fi';
 import { BsTelephone } from 'react-icons/bs';
-import Experience from '../../compoents/Card/experience';
 import Swal from 'sweetalert2';
 
 export async function getServerSideProps(context) {
