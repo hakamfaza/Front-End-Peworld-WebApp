@@ -8,7 +8,15 @@
   align-items: center;
   width: 130px;
   justify-content: space-between;
-  margin-right: 70px;
+  margin-right: 80px;
+}
+
+.boxAuth {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  justify-content: space-between;
+  margin-right: 140px;
 }
 
 .notif {
@@ -28,11 +36,41 @@
   cursor: pointer;
 }
 
+.btnSignup {
+  border: none;
+  background-color: #5e50a1;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.btnLogin {
+  border: none;
+  background-color: #fff;
+  border: 1px solid #5e50a1;
+  color: #5e50a1;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
 @media screen and (max-width: 576px) {
   .boxSide {
     margin-right: 15px;
   }
   .logo {
     margin: 5px;
+  }
+  .boxAuth {
+    margin-right: 160px;
+  }
+  .boxAuth {
+    margin-right: 40px;
+  }
+  .btnLogin {
+    padding: 3px 15px;
+    margin-right: 10px;
   }
 }

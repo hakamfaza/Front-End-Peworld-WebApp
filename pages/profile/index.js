@@ -27,7 +27,8 @@ export async function getServerSideProps(context) {
       return {
         data: response.data.data,
         error: false,
-        token: token || null
+        token: token || null,
+        id: id || null
       };
     } catch (error) {
       return {

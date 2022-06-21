@@ -16,19 +16,26 @@ export default function Navbar() {
             </div>
           </Link>
           <div className="d-flex">
-            <div className={styles.boxSide}>
-              <IoMdNotificationsOutline className={styles.notif} />
-              <Link href="/message">
-                <div>
-                  <HiOutlineMail className={styles.mail} />
-                </div>
-              </Link>
-              <Link href="/profile">
-                <div>
-                  <Image src="/profile.png" width={26} height={26} className={styles.profile} alt="" />
-                </div>
-              </Link>
-            </div>
+            {false ? (
+              <div className={styles.boxSide}>
+                <IoMdNotificationsOutline className={styles.notif} />
+                <Link href="/message">
+                  <div>
+                    <HiOutlineMail className={styles.mail} />
+                  </div>
+                </Link>
+                <Link href="/profile">
+                  <div>
+                    <Image src="/profile.png" width={26} height={26} className={styles.profile} alt="" />
+                  </div>
+                </Link>
+              </div>
+            ) : (
+              <div className={styles.boxAuth}>
+                <button className={styles.btnLogin}>Masuk</button>
+                <button className={styles.btnSignup}>Daftar</button>
+              </div>
+            )}
           </div>
         </div>
       </nav>

@@ -43,7 +43,7 @@ export async function getServerSideProps(context) {
 const ListUser = props => {
   const router = useRouter();
   const [getData, setData] = useState(props.users.data);
-  const [getSearch, setSearch] = useState(router.query.search);
+  const [getSearch, setSearch] = useState(router.query.search || '');
   const [isCategory, setIsCategory] = useState(false);
   const [getCategory, setCategory] = useState('');
 
