@@ -8,6 +8,8 @@ import AuthInput from '../../compoents/Input';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+import logo from '../../public/logo.png';
+
 export default function index() {
   const router = useRouter();
   const [getForm, setForm] = useState({
@@ -69,10 +71,10 @@ export default function index() {
             <div className={styles.relative}>
               <div className={styles.bgImage}>
                 <div className={styles.logo}>
-                  <Image src="/logo.svg" width={86} height={25} className={styles.logo} alt="" />
+                  <Image src={logo} width={86} height={25} className={styles.logo} alt="" />
                 </div>
                 <div>
-                  <Image src="/image/agency.jpg" width={600} height={600} className={styles.image} alt="" />
+                  <Image src="/image/agency.jpg" width={550} height={550} className={styles.image} alt="" />
                 </div>
               </div>
               <h1 className={styles.title}>Temukan developer berbakat & terbaik di berbagai bidang keahlian</h1>

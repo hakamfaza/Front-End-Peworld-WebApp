@@ -1,5 +1,5 @@
 .container {
-  padding: 44px 50px !important;
+  padding: 40px !important;
   background-color: #e5e5e5;
 }
 
@@ -16,8 +16,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  height: 600px;
-  width: 600px;
+  height: 550px;
+  width: 550px;
 }
 
 .image {
@@ -34,7 +34,7 @@
   position: absolute !important;
   top: 40px;
   left: 40px;
-  z-index: 10;
+  z-index: 99;
 }
 
 .title {
@@ -58,7 +58,7 @@
 }
 
 .formWorker {
-  padding: 20px;
+  padding: 23px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,11 +66,11 @@
 }
 
 .formLogin {
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 600px;
+  height: 550px;
 }
 
 .formTitle {
