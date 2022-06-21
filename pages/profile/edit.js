@@ -238,6 +238,7 @@ const edit = props => {
             showConfirmButton: false,
             timer: 1800
           });
+          // window.location.reload()
           router.push('/profile');
         })
         .catch(err => {

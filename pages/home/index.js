@@ -9,23 +9,24 @@ export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
   const fetchApi = async () => {
     const search = context.query.search || '';
+    const sortField = context.query.sortField || '';
     try {
       const response = await axios({
-        url: `${process.env.NEXT_PUBLIC_API_URL}/users/?search=${search}&limit=5`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/?search=${search}&&sortField=${sortField}&limit=5`,
         method: 'get',
         headers: {
-          token,
-        },
+          token
+        }
       });
       return {
         data: response.data.data,
         error: false,
-        token: token,
+        token: token
       };
     } catch (error) {
       return {
         data: [],
-        error: true,
+        error: true
       };
     }
   };
@@ -34,27 +35,29 @@ export async function getServerSideProps(context) {
     props: {
       data: [],
       users: await fetchApi(),
-      token: token || null,
-    },
+      token: token || null
+    }
   };
 }
 
-const ListUser = (props) => {
+const ListUser = props => {
   const router = useRouter();
   const [getData, setData] = useState(props.users.data);
-  const [getSearch, setSearch] = useState(router.query.search);
+  const [getSearch, setSearch] = useState(router.query.search || '');
+  const [isCategory, setIsCategory] = useState(false);
+  const [getCategory, setCategory] = useState('');
 
   const getValueSearch = async () => {
     await axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/users/?search=${getSearch}`, {
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/users/?search=${getSearch}&sortField=${getCategory}`, {
         headers: {
-          token: props.token,
-        },
+          token: props.token
+        }
       })
-      .then((res) => {
+      .then(res => {
         setData(res.data.data);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
@@ -63,20 +66,29 @@ const ListUser = (props) => {
     setSearch(e.target.value);
   };
 
-  const onSearch = (e) => {
+  const onCategory = e => {
+    if (isCategory) {
+      setIsCategory(false);
+    } else {
+      setIsCategory(true);
+    }
+    setCategory(e);
+  };
+
+  const onSearch = e => {
     e.preventDefault();
-    router.push(`/home/?search=${getSearch}`);
+    router.push(`/home/?search=${getSearch}&sortField=${getCategory}`);
     return getValueSearch();
   };
 
-  const handleKey = (e) => {
+  const handleKey = e => {
     if (e.key === 'Enter') {
-      router.push(`/home/?search=${getSearch}`);
+      router.push(`/home/?search=${getSearch}&sortField=${getCategory}`);
       return getValueSearch();
     }
   };
 
-  const onProfile = (id) => {
+  const onProfile = id => {
     router.push(`profile/${id}`);
   };
 
@@ -91,19 +103,31 @@ const ListUser = (props) => {
             <input
               placeholder="Search user"
               className={styles.input}
-              onChange={(e) => getInput(e)}
+              onChange={e => getInput(e)}
               onKeyDown={handleKey}
             />
             <AiOutlineSearch className={styles.iconSearch} />
-            <div className={styles.category}>Kategori</div>
-            <button className={styles.btn} onClick={(e) => onSearch(e)}>
+            <div className={styles.category}>
+              <button onClick={() => onCategory('')} className={styles.category}>
+                Kategori
+              </button>
+              {isCategory ? (
+                <div className={styles.dropDown}>
+                  <button onClick={() => onCategory('Name')} className={styles.btnDropDown}>
+                    Name
+                  </button>
+                  <button onClick={() => onCategory('Address')} className={styles.btnDropDownTwo}>
+                    Address
+                  </button>
+                </div>
+              ) : null}
+            </div>
+            <button className={styles.btn} onClick={e => onSearch(e)}>
               Seach
             </button>
           </div>
           {getData.map((item, index) => {
-            const img = item.user.photo
-              ? `https://peworld.herokuapp.com/${item.photo}`
-              : '/profile.png';
+            const img = item.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${item.photo}` : '/profile.png';
             return (
               <div key={index}>
                 <Card

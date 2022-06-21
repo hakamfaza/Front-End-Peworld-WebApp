@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import {} from 'next-cookies';
@@ -11,6 +11,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { FiGithub, FiGitlab } from 'react-icons/fi';
 import Experience from '../../compoents/Card/experience';
 import Swal from 'sweetalert2';
+import Portfolio from '../../compoents/Card/portfolio';
 
 export async function getServerSideProps(context) {
   const { token, id } = context.req.cookies;
@@ -26,7 +27,8 @@ export async function getServerSideProps(context) {
       return {
         data: response.data.data,
         error: false,
-        token: token || null
+        token: token || null,
+        id: id || null
       };
     } catch (error) {
       return {
@@ -48,8 +50,50 @@ const Profile = props => {
   const router = useRouter();
   const [getUser, setUser] = useState(props.users.data);
 
+  useEffect(() => {
+    getUser;
+  }, [getUser]);
+
   const onEdit = () => {
     router.push('/profile/edit');
+  };
+
+  const onDelete = e => {
+    Swal.fire({
+      title: 'Do you want to delete this Portfolio?',
+      showDenyButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No'
+    }).then(async res => {
+      if (res.isConfirmed) {
+        const res = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/portfolio/${e}`, {
+          headers: {
+            token: props.users.token
+          }
+        });
+        window.location.reload();
+        Swal.fire('Success!', '', 'success');
+      }
+    });
+  };
+
+  const onDeleteExp = e => {
+    Swal.fire({
+      title: 'Do you want to delete this Experience?',
+      showDenyButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No'
+    }).then(async res => {
+      if (res.isConfirmed) {
+        const res = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/experience/${e}`, {
+          headers: {
+            token: props.users.token
+          }
+        });
+        window.location.reload();
+        Swal.fire('Success!', '', 'success');
+      }
+    });
   };
 
   const onLogout = () => {
@@ -70,6 +114,7 @@ const Profile = props => {
   };
 
   const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png';
+
   return (
     <div className={styles.container}>
       <div className={styles.divOne} />
@@ -140,35 +185,45 @@ const Profile = props => {
                   </ul>
                   <div className="tab-content">
                     <div className="tab-pane fade show active" id="home">
-                      <div className="row">
-                        {getUser.portfolio.map((item, index) => {
-                          return (
-                            <div className="col-md-4 mt-3" key={index}>
-                              <div className={styles.boxPorto}>
-                                <Image src={`${item.photo}`} width={250} height={150} className={styles.imgPorto} />
-                                <p className={styles.textPorto}>{item.title}</p>
-                              </div>
-                            </div>
-                          );
-                        })}
+                      <div>
+                        {getUser.portfolio.length >= 0 ? (
+                          <div className="row">
+                            {getUser.portfolio.map((item, index) => {
+                              return (
+                                <div className="col-md-4 mt-3" key={index}>
+                                  <Portfolio image={item.photo} title={item.title} onClick={() => onDelete(item.id)} />
+                                </div>
+                              );
+                            })}
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                     <div className="tab-pane fade" id="profile">
-                      <div className="row">
-                        {getUser.experience.map((item, index) => {
-                          return (
-                            <div className="col-md-12" key={index}>
-                              <Experience
-                                image={item.photo}
-                                job={item.profession}
-                                company={item.company}
-                                date={`${item.start_date} - ${item.resign_date}`}
-                                description={item.description}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
+                      {getUser.experience.length >= 0 ? (
+                        <div className="row">
+                          {getUser.experience.map((item, index) => {
+                            return (
+                              <div className="col-md-12" key={index}>
+                                <Experience
+                                  image={item.photo}
+                                  job={item.profession}
+                                  company={item.company}
+                                  date={`${item.start_date} - ${new Date(
+                                    Date.parse(item.resign_date)
+                                  ).toLocaleDateString()}`}
+                                  description={item.description}
+                                  onClick={() => onDeleteExp(item.id)}
+                                />
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <div>
+                          <h1>Data tidak ada</h1>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

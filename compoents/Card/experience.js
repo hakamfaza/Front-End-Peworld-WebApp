@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from '../../styles/components/Card.module.css';
 import Image from 'next/image';
+import { AiOutlineDelete } from 'react-icons/ai';
 
 export default function Experience(params) {
   return (
     <div className={styles.boxExperience}>
-      <div>
+      <div className={styles.boxImageExp}>
         <Image src={`${params.image}`} width={200} height={200} className={styles.img} alt="" />
+        <AiOutlineDelete className={styles.deleteExp} onClick={params.onClick} />
       </div>
       <div className={styles.boxExp}>
         <h5 className={styles.titleJob}>{params.job}</h5>

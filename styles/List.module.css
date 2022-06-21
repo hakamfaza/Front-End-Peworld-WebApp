@@ -36,6 +36,36 @@
   outline: none;
 }
 
+.category {
+  border: none;
+  background-color: #fff;
+}
+
+.dropDown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: -120;
+  right: -1;
+  border-radius: 1px;
+  width: 76px;
+  padding: 3px;
+  box-shadow: -1px 7px 33px -25px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 7px 33px -25px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 7px 33px -25px rgba(0, 0, 0, 0.75);
+}
+
+.btnDropDown {
+  background-color: #fff;
+  border: none;
+  border-bottom: solid 1px rgb(193, 193, 193);
+}
+
+.btnDropDownTwo {
+  background-color: #fff;
+  border: none;
+}
+
 .iconSearch {
   font-size: 24px;
   position: absolute;
@@ -46,10 +76,12 @@
 }
 
 .category {
+  position: relative;
   margin-left: 10px;
   border-left: 1px solid rgba(158, 160, 165, 1);
   padding: 5px 10px;
   color: rgba(158, 160, 165, 1);
+  cursor: pointer;
 }
 
 .btn {
@@ -57,7 +89,7 @@
   background-color: rgba(94, 80, 161, 1);
   color: #fff;
   border: none;
-  margin-left: 30px;
+  margin-left: 15px;
   border-radius: 3px;
 }
 

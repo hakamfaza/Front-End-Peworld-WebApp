@@ -1,0 +1,25 @@
+.boxList {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  color: #46505c;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 15px 0 15px 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.check {
+  color: #5e50a1;
+  margin-left: -20px;
+  margin-right: 10px;
+}
+
+.checkSecond {
+  color: #fbb017;
+  margin-left: -20px;
+  margin-right: 10px;
+}

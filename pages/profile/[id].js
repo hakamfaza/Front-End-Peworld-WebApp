@@ -13,6 +13,7 @@ import Experience from '../../compoents/Card/experience';
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
   const myId = context.req.cookies.id;
+  const { isRecruiter } = context.req.cookies;
 
   const fetchApi = async () => {
     const { id } = context.params;
@@ -27,7 +28,8 @@ export async function getServerSideProps(context) {
       return {
         data: response.data.data,
         error: false,
-        token: token || null
+        token: token || null,
+        isRecruiter
       };
     } catch (error) {
       return {
@@ -114,9 +116,11 @@ const profile = props => {
                 </div>
                 <p className={styles.job}>{getUser.user.workplace}</p>
                 <p className={styles.description}>{getUser.user.description}</p>
-                <button className={styles.btn} onClick={() => sendMessage()}>
-                  Hire
-                </button>
+                {props.users.isRecruiter ? (
+                  <button className={styles.btn} onClick={() => sendMessage()}>
+                    Hire
+                  </button>
+                ) : null}
                 <h5 className={styles.titleSkill}>Skill</h5>
                 <div className="row">
                   {getUser.skills.map((item, index) => (
@@ -148,12 +152,12 @@ const profile = props => {
                 <div className="m-4">
                   <ul className="nav nav-tabs" id="myTab">
                     <li className="nav-item">
-                      <a href="#home" className="nav-link active" data-bs-toggle="tab">
+                      <a href="#home" data-bs-toggle="tab" className={styles.titleExp}>
                         Portfolio
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a href="#profile" className="nav-link" data-bs-toggle="tab">
+                      <a href="#profile" data-bs-toggle="tab" className={styles.titleExp}>
                         Pengalaman kerja
                       </a>
                     </li>
