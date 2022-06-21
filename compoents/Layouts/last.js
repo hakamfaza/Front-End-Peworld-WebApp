@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from '../../styles/Landing.module.css';
+import { useRouter } from 'next/router';
 
 export default function Last() {
+  const router = useRouter();
+  const onClick = () => {
+    router.push('/register');
+  };
   return (
     <div className={styles.lastContainer}>
       <div className={styles.object}>
@@ -13,7 +18,9 @@ export default function Last() {
           </div>
           <div className="col-md-6">
             <div className={styles.boxBotton}>
-              <button className={styles.btnWhite}>Mulai Dari Sekarang</button>
+              <button className={styles.btnWhite} onClick={() => onClick()}>
+                Mulai Dari Sekarang
+              </button>
             </div>
           </div>
         </div>
