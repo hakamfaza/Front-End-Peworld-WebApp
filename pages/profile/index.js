@@ -76,6 +76,25 @@ const Profile = props => {
     });
   };
 
+  const onDeleteExp = e => {
+    Swal.fire({
+      title: 'Do you want to delete this Experience?',
+      showDenyButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No'
+    }).then(async res => {
+      if (res.isConfirmed) {
+        const res = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/experience/${e}`, {
+          headers: {
+            token: props.users.token
+          }
+        });
+        window.location.reload();
+        Swal.fire('Success!', '', 'success');
+      }
+    });
+  };
+
   const onLogout = () => {
     Swal.fire({
       title: 'Do you want to logout?',
@@ -180,21 +199,30 @@ const Profile = props => {
                       </div>
                     </div>
                     <div className="tab-pane fade" id="profile">
-                      <div className="row">
-                        {getUser.experience.map((item, index) => {
-                          return (
-                            <div className="col-md-12" key={index}>
-                              <Experience
-                                image={item.photo}
-                                job={item.profession}
-                                company={item.company}
-                                date={`${item.start_date} - ${item.resign_date}`}
-                                description={item.description}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
+                      {getUser.experience.length >= 0 ? (
+                        <div className="row">
+                          {getUser.experience.map((item, index) => {
+                            return (
+                              <div className="col-md-12" key={index}>
+                                <Experience
+                                  image={item.photo}
+                                  job={item.profession}
+                                  company={item.company}
+                                  date={`${item.start_date} - ${new Date(
+                                    Date.parse(item.resign_date)
+                                  ).toLocaleDateString()}`}
+                                  description={item.description}
+                                  onClick={() => onDeleteExp(item.id)}
+                                />
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <div>
+                          <h1>Data tidak ada</h1>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
