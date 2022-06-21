@@ -16,7 +16,6 @@ export default function Navbar() {
     setIsLoading(false);
   }, []);
 
-  console.log(token);
   return (
     <div>
       {isLoading ? null : (
