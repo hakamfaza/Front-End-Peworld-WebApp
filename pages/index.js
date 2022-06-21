@@ -19,5 +19,5 @@ const Home = () => {
   );
 };
 
-Home.layouts = 'L2';
+Home.layouts = 'L1';
 export default Home;
