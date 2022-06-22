@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from '../../styles/Landing.module.css';
 import Profile from '../Card/profile';
+import userOne from '../../assets/img/heri.jpg';
+import userSecond from '../../assets/img/nial.jpg';
+import userThrid from '../../assets/img/luis.jpg';
 
 export default function Thrid() {
   return (
@@ -15,7 +18,7 @@ export default function Thrid() {
               name="Harry Styles"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor."
               profesiion="Web Developer"
-              image="/heri.jpg"
+              image={userOne}
             />
           </div>
           <div className="col-md-4">
@@ -23,7 +26,7 @@ export default function Thrid() {
               name="Niall Horan"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
               profesiion="Web Developer"
-              image="/nial.jpg"
+              image={userSecond}
             />
           </div>
           <div className="col-md-4">
@@ -31,7 +34,7 @@ export default function Thrid() {
               name="Louis Tomlinson"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
               profesiion="Web Developer"
-              image="/luis.jpg"
+              image={userThrid}
             />
           </div>
         </dvi>

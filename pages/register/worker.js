@@ -9,7 +9,8 @@ import AuthInput from '../../compoents/Input';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-import logo from '../../public/logo.png';
+import logo from '../../assets/icon/logo.png';
+import bg from '../../assets/img/agency.jpg';
 
 export default function registerWorker() {
   const router = useRouter();
@@ -83,7 +84,7 @@ export default function registerWorker() {
                   <Image src={logo} width={86} height={25} className={styles.logo} alt="logo" />
                 </div>
                 <div>
-                  <Image src="/image/agency.jpg" width={550} height={550} className={styles.image} alt="ageny" />
+                  <Image src={bg} width={550} height={550} className={styles.image} alt="ageny" />
                 </div>
               </div>
               <h1 className={styles.title}>Temukan developer berbakat & terbaik di berbagai bidang keahlian</h1>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Landing.module.css';
+import bg from '../../assets/img/second.png';
 import { useRouter } from 'next/router';
 import List from '../moleculs/list';
 
@@ -11,7 +12,7 @@ export default function Main() {
         <div className="row">
           <div className="col-md-6">
             <div className={styles.container}>
-              <Image src="/image/second.png" width={500} height={500} alt="" />
+              <Image src={bg} width={500} height={500} alt="" />
             </div>
           </div>
           <div className="col-md-6">

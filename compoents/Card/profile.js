@@ -8,7 +8,7 @@ export default function Profile(params) {
     <div className={styles.containerProfile}>
       <div>
         <div className={styles.borderProfile}>
-          <Image src={`${params.image}`} width={100} height={100} objectFit="cover" className={styles.profile} />
+          <Image src={params.image} width={100} height={100} objectFit="cover" className={styles.profile} />
         </div>
       </div>
       <div className={styles.information}>
