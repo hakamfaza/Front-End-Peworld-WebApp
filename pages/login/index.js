@@ -9,7 +9,8 @@ import AuthInput from '../../compoents/Input';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-import logo from '../../public/logo.png';
+import logo from '../../assets/icon/logo.png';
+import bg from '../../assets/img/agency.jpg';
 
 export default function index() {
   const router = useRouter();
@@ -57,7 +58,7 @@ export default function index() {
       .catch(err => {
         Swal.fire({
           icon: 'error',
-          title: err.message,
+          title: err.response.data.error,
           showConfirmButton: false,
           timer: 1500
         });
@@ -80,7 +81,7 @@ export default function index() {
                   <Image src={logo} width={86} height={25} className={styles.logo} alt="" />
                 </div>
                 <div>
-                  <Image src="/image/agency.jpg" width={550} height={550} className={styles.image} alt="" />
+                  <Image src={bg} width={550} height={550} className={styles.image} alt="" />
                 </div>
               </div>
               <h1 className={styles.title}>Temukan developer berbakat & terbaik di berbagai bidang keahlian</h1>

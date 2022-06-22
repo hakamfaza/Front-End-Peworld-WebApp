@@ -5,15 +5,15 @@ import { useRouter } from 'next/router';
 import styles from '../../styles/List.module.css';
 import { AiOutlineSearch } from 'react-icons/ai';
 import axios from 'axios';
-import cookies from 'next-cookies';
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
   const fetchApi = async () => {
     const search = context.query.search || '';
+    const sortField = context.query.sortField || '';
     try {
       const response = await axios({
-        url: `${process.env.NEXT_PUBLIC_API_URL}/users/?search=${search}&limit=5`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/users/?search=${search}&&sortField=${sortField}&limit=5`,
         method: 'get',
         headers: {
           token
@@ -44,14 +44,13 @@ export async function getServerSideProps(context) {
 const ListUser = props => {
   const router = useRouter();
   const [getData, setData] = useState(props.users.data);
-  console.log(getData);
-  const [getSearch, setSearch] = useState(router.query.search);
-  console.log(getSearch);
-  // const [pagination, setPagination] =useState(props.users.data.pagination);
+  const [getSearch, setSearch] = useState(router.query.search || '');
+  const [isCategory, setIsCategory] = useState(false);
+  const [getCategory, setCategory] = useState('');
 
   const getValueSearch = async () => {
     await axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/users/?search=${getSearch}`, {
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/users/?search=${getSearch}&sortField=${getCategory}`, {
         headers: {
           token: props.token
         }
@@ -68,21 +67,30 @@ const ListUser = props => {
     setSearch(e.target.value);
   };
 
+  const onCategory = e => {
+    if (isCategory) {
+      setIsCategory(false);
+    } else {
+      setIsCategory(true);
+    }
+    setCategory(e);
+  };
+
   const onSearch = e => {
     e.preventDefault();
-    router.push(`/home/recruiter/?search=${getSearch}`);
+    router.push(`/home/?search=${getSearch}&sortField=${getCategory}`);
     return getValueSearch();
   };
 
   const handleKey = e => {
     if (e.key === 'Enter') {
-      router.push(`/home/recruiter/?search=${getSearch}`);
+      router.push(`/home/?search=${getSearch}&sortField=${getCategory}`);
       return getValueSearch();
     }
   };
 
   const onProfile = id => {
-    router.push(`/profile/${id}`);
+    router.push(`profile/${id}`);
   };
 
   return (
@@ -105,13 +113,27 @@ const ListUser = props => {
               onKeyDown={handleKey}
             />
             <AiOutlineSearch className={styles.iconSearch} />
-            <div className={styles.category}>Kategori</div>
+            <div className={styles.category}>
+              <button onClick={() => onCategory('')} className={styles.category}>
+                Kategori
+              </button>
+              {isCategory ? (
+                <div className={styles.dropDown}>
+                  <button onClick={() => onCategory('Name')} className={styles.btnDropDown}>
+                    Name
+                  </button>
+                  <button onClick={() => onCategory('Address')} className={styles.btnDropDownTwo}>
+                    Address
+                  </button>
+                </div>
+              ) : null}
+            </div>
             <button className={styles.btn} onClick={e => onSearch(e)}>
               Seach
             </button>
           </div>
           {getData.map((item, index) => {
-            const img = item.user.photo ? `https://peworld.herokuapp.com/${item.photo}` : '/profile.png';
+            const img = item.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${item.photo}` : '/profile.png';
             return (
               <div key={index}>
                 <Card
@@ -132,7 +154,21 @@ const ListUser = props => {
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
-              <li className="page-item"></li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  1
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  2
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  3
+                </a>
+              </li>
               <li className="page-item">
                 <a className="page-link" href="#" aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>

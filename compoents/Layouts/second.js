@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Landing.module.css';
+import bg from '../../assets/img/thrid.png';
 import ListSkill from '../moleculs/list-skill';
 
 export default function Second() {
@@ -38,7 +39,7 @@ export default function Second() {
           </div>
           <div className="col-md-6">
             <div className={styles.container}>
-              <Image src="/image/thrid.png" width={500} height={500} alt="" />
+              <Image src={bg} width={500} height={500} alt="" />
             </div>
           </div>
         </div>
