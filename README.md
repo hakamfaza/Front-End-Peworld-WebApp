@@ -1,8 +1,28 @@
 <h1 align="center">PeworldApp<br>Front End with Next.js</h1>
 
 <!-- PROJECT LOGO -->
-[![bdf324b5b2799af43e4299379d8433db.png](https://i.postimg.cc/LXrzKD41/bdf324b5b2799af43e4299379d8433db.png)](https://postimg.cc/cgBKfQnx)
+<div align="center">
+<img src="https://i.postimg.cc/LXrzKD41/bdf324b5b2799af43e4299379d8433db.png)" align="center" width="auto" height="200" />
+</div>
 
+ <div align="center">
+  <br />
+  <br />
+  <a href="https://github.com/dec0dOS/amazing-github-template/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
+  ·
+  <a href="https://github.com/dec0dOS/amazing-github-template/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
+  .
+  <a href="https://github.com/dec0dOS/amazing-github-template/discussions">Ask a Question</a>
+</div>
+
+<div align="center">
+<br />
+
+[![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)
+
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/hakamfaza)
+[![made with hearth by hakamfaza](https://img.shields.io/badge/made%20with%20%E2%99%A5%20by-hakamfaza-ff1414.svg?style=flat-square)](https://github.com/hakamfaza)
+ </div>
 
 
 <!-- TABLE OF CONTENTS -->
@@ -22,6 +42,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#screenshot">Screenshot</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -35,26 +56,6 @@
 
 Peworld is an application that is used to find or get jobs for users. In registration, the user can choose as a recruiter or worker
 
-- Search
-[![peworld.png](https://i.postimg.cc/K81bHDVb/peworld.png)](https://postimg.cc/sMCbB7sH)
-
-- Profile Recruiter
-[![Screenshot-2022-06-16-073605.png](https://i.postimg.cc/XJHxmdtM/Screenshot-2022-06-16-073605.png)](https://postimg.cc/njmvQjHT)
-
-- Profile Worker
-[![Screenshot-2022-06-06-133008.png](https://i.postimg.cc/G2wbYTXC/Screenshot-2022-06-06-133008.png)](https://postimg.cc/WD8RczRW)
-
-- Edit Profile Recruiter
-  [![Screenshot-2022-06-16-073819.png](https://i.postimg.cc/sXN9wyZs/Screenshot-2022-06-16-073819.png)](https://postimg.cc/hzVdtkr5)
-
-- Edit Profile Worker
-[![Screenshot-2022-06-15-075237.png](https://i.postimg.cc/B6BfKY8T/Screenshot-2022-06-15-075237.png)](https://postimg.cc/MMHLkYmH)
-[![Screenshot-2022-06-15-075436.png](https://i.postimg.cc/XJd7Dkrq/Screenshot-2022-06-15-075436.png)](https://postimg.cc/R6CBWfQx)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 ### Built With
 
 This application was developed using a framework/library
@@ -64,8 +65,6 @@ This application was developed using a framework/library
 * [Bootstrap](https://getbootstrap.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -106,6 +105,24 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Screenshot
+### Search
+[![peworld.png](https://i.postimg.cc/K81bHDVb/peworld.png)](https://postimg.cc/sMCbB7sH)
+
+### Profile Recruiter
+[![Screenshot-2022-06-16-073605.png](https://i.postimg.cc/XJHxmdtM/Screenshot-2022-06-16-073605.png)](https://postimg.cc/njmvQjHT)
+
+### Profile Worker
+[![Screenshot-2022-06-06-133008.png](https://i.postimg.cc/G2wbYTXC/Screenshot-2022-06-06-133008.png)](https://postimg.cc/WD8RczRW)
+
+### Edit Profile Recruiter
+  [![Screenshot-2022-06-16-073819.png](https://i.postimg.cc/sXN9wyZs/Screenshot-2022-06-16-073819.png)](https://postimg.cc/hzVdtkr5)
+
+### Edit Profile Worker
+[![Screenshot-2022-06-15-075237.png](https://i.postimg.cc/B6BfKY8T/Screenshot-2022-06-15-075237.png)](https://postimg.cc/MMHLkYmH)
+[![Screenshot-2022-06-15-075436.png](https://i.postimg.cc/XJd7Dkrq/Screenshot-2022-06-15-075436.png)](https://postimg.cc/R6CBWfQx)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- CONTRIBUTING -->
