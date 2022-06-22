@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from '../../styles/Auth.module.css';
 import Image from 'next/image';
@@ -56,7 +57,7 @@ export default function index() {
       .catch(err => {
         Swal.fire({
           icon: 'error',
-          title: 'Failed to login!',
+          title: err.message,
           showConfirmButton: false,
           timer: 1500
         });
@@ -65,6 +66,11 @@ export default function index() {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Peworld | Login</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div className="container-fuild">
         <div className="row">
           <div className="col-md-6">

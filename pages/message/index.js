@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import styles from '../../styles/Message.module.css';
 import Image from 'next/image';
 import { FiSend } from 'react-icons/fi';
@@ -6,6 +7,11 @@ import { FiSend } from 'react-icons/fi';
 const message = () => {
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Peworld | Login</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div className="container">
         <div className={styles.boxMessage}>
           <div className="row">

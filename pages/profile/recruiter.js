@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Head from 'next/head';
 import styles from '../../styles/Profile.module.css';
 import Image from 'next/image';
 import { HiOutlineMail } from 'react-icons/hi';
@@ -70,6 +71,11 @@ const Profile = props => {
   const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png';
   return (
     <div className={styles.containerR}>
+      <Head>
+        <title>Peworld | Profile</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div className="container">
         <div className={styles.boxProfile}>
           <div className="row">

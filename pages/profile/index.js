@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import axios from 'axios';
 import {} from 'next-cookies';
 import styles from '../../styles/Profile.module.css';
@@ -117,6 +118,11 @@ const Profile = props => {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Peworld | Profile</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div className={styles.divOne} />
       <div className="container">
         <div className={styles.boxProfile}>

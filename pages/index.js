@@ -10,6 +10,11 @@ import styles from '../styles/Home.module.css';
 const Home = () => {
   return (
     <div>
+      <Head>
+        <title>Peworld</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <Jumbotron />
       <Main />
       <Second />
