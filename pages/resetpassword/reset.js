@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../styles/Auth.module.css';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import AuthInput from '../../compoents/Input';
@@ -9,6 +10,11 @@ import logo from '../../public/logo.png';
 export default function resetPassword() {
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Peworld | Login</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div className="container-fuild">
         <div className="row">
           <div className="col-md-6">

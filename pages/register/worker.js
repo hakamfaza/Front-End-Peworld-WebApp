@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import styles from '../../styles/Auth.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -68,6 +69,11 @@ export default function registerWorker() {
   };
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Peworld | Register</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div className="container-fuild">
         <div className="row">
           <div className="col-md-6">

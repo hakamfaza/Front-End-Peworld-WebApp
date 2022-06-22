@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from '../../compoents/Card';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from '../../styles/List.module.css';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -94,6 +95,11 @@ const ListUser = props => {
 
   return (
     <>
+      <Head>
+        <title>Peworld | Home</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div>
         <h1 className={styles.top}>Top Jobs</h1>
       </div>

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Select from 'react-select';
 import styles from '../../styles/Profile.module.css';
 import Image from 'next/image';
@@ -123,6 +124,11 @@ const edit = props => {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Peworld | Edit</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div className={styles.divOne} />
       <div className="container">
         <div className={styles.boxProfile}>

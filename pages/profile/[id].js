@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import axios from 'axios';
 import styles from '../../styles/Profile.module.css';
 import Image from 'next/image';
@@ -97,6 +98,11 @@ const profile = props => {
   const img = getUser.user.photo ? `${process.env.NEXT_PUBLIC_API_URL}/${getUser.user.photo}` : '/profile.png';
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Peworld | Profile</title>
+        <meta name="" content="" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <div className={styles.divOne} />
       <div className="container">
         <div className={styles.boxProfile}>
