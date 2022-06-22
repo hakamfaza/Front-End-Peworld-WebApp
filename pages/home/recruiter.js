@@ -90,7 +90,7 @@ const ListUser = props => {
   };
 
   const onProfile = id => {
-    router.push(`profile/${id}`);
+    router.push(`/profile/${id}`);
   };
 
   return (
