@@ -110,16 +110,17 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 [![peworld.png](https://i.postimg.cc/K81bHDVb/peworld.png)](https://postimg.cc/sMCbB7sH)
 
 ### Profile Recruiter
-[![Screenshot-2022-06-16-073605.png](https://i.postimg.cc/XJHxmdtM/Screenshot-2022-06-16-073605.png)](https://postimg.cc/njmvQjHT)
+[![Screenshot-2022-06-24-103727.png](https://i.postimg.cc/KjJ2RxRF/Screenshot-2022-06-24-103727.png)](https://postimg.cc/dZkXfM2S)
 
 ### Profile Worker
-[![Screenshot-2022-06-06-133008.png](https://i.postimg.cc/G2wbYTXC/Screenshot-2022-06-06-133008.png)](https://postimg.cc/WD8RczRW)
+[![Screenshot-310.png](https://i.postimg.cc/VkJfTrV8/Screenshot-310.png)](https://postimg.cc/yDzC3dKQ)
+[![Screenshot-2022-06-24-103951.png](https://i.postimg.cc/s2Ftfvw7/Screenshot-2022-06-24-103951.png)](https://postimg.cc/qNLmjMfv)
 
 ### Edit Profile Recruiter
-  [![Screenshot-2022-06-16-073819.png](https://i.postimg.cc/sXN9wyZs/Screenshot-2022-06-16-073819.png)](https://postimg.cc/hzVdtkr5)
+[![Screenshot-2022-06-24-103656.png](https://i.postimg.cc/6qQPbRpJ/Screenshot-2022-06-24-103656.png)](https://postimg.cc/bDKLsZn3)
 
 ### Edit Profile Worker
-[![Screenshot-2022-06-15-075237.png](https://i.postimg.cc/B6BfKY8T/Screenshot-2022-06-15-075237.png)](https://postimg.cc/MMHLkYmH)
+[![Screenshot-312.png](https://i.postimg.cc/25q14XDn/Screenshot-312.png)](https://postimg.cc/Ty62x0hP)
 [![Screenshot-2022-06-15-075436.png](https://i.postimg.cc/XJd7Dkrq/Screenshot-2022-06-15-075436.png)](https://postimg.cc/R6CBWfQx)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
