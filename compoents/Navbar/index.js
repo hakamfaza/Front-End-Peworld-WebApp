@@ -6,8 +6,11 @@ import Cookies from 'js-cookie';
 import styles from '../../styles/components/Navbar.module.css';
 import { HiOutlineMail } from 'react-icons/hi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
+import logo from '../../assets/icon/logo-purple.png';
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
+  const router = useRouter();
   const token = Cookies.get('token');
 
   const [isLoading, setIsLoading] = useState(true);
@@ -16,6 +19,14 @@ export default function Navbar() {
     setIsLoading(false);
   }, []);
 
+  const onLogin = () => {
+    router.push('/login');
+  };
+
+  const onRegister = () => {
+    router.push('/register');
+  };
+
   return (
     <div>
       {isLoading ? null : (
@@ -23,7 +34,7 @@ export default function Navbar() {
           <div className="container-fluid">
             <Link href="/home">
               <div className={styles.logo}>
-                <Image src="/logo-purple.svg" width={125} height={30} alt="" />
+                <Image src={logo} width={110} height={30} alt="" />
               </div>
             </Link>
             <div className="d-flex">
@@ -43,8 +54,12 @@ export default function Navbar() {
                 </div>
               ) : (
                 <div className={styles.boxAuth}>
-                  <button className={styles.btnLogin}>Masuk</button>
-                  <button className={styles.btnSignup}>Daftar</button>
+                  <button className={styles.btnLogin} onClick={() => onLogin()}>
+                    Masuk
+                  </button>
+                  <button className={styles.btnSignup} onClick={() => onRegister()}>
+                    Daftar
+                  </button>
                 </div>
               )}
             </div>

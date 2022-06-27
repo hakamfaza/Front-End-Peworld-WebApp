@@ -74,7 +74,7 @@ export async function getServerSideProps(context) {
 const profile = props => {
   const [getUser, setUser] = useState(props.users.data);
   const myUser = props.myUser.data.user;
-  const token = props.token;
+  const token = props.users.token;
   const router = useRouter();
 
   const sendMessage = async () => {
