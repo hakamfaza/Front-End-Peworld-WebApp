@@ -59,7 +59,7 @@ export default function registerWorker() {
         .catch(err => {
           Swal.fire({
             icon: 'error',
-            title: 'Failed to login!',
+            title: err.response.data.error,
             showConfirmButton: false,
             timer: 1800
           });
