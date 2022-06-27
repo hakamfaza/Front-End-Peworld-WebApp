@@ -74,7 +74,7 @@ export async function getServerSideProps(context) {
 const profile = props => {
   const [getUser, setUser] = useState(props.users.data);
   const myUser = props.myUser.data.user;
-  const token = props.token;
+  const token = props.users.token;
   const router = useRouter();
 
   const sendMessage = async () => {
@@ -122,11 +122,14 @@ const profile = props => {
                 </div>
                 <p className={styles.job}>{getUser.user.workplace}</p>
                 <p className={styles.description}>{getUser.user.description}</p>
-                {props.users.isRecruiter ? (
+
+                {props.users.isRecruiter === 'true' ? (
                   <button className={styles.btn} onClick={() => sendMessage()}>
                     Hire
                   </button>
-                ) : null}
+                ) : (
+                  <div style={{ 'margin-top': '-20px' }}></div>
+                )}
                 <h5 className={styles.titleSkill}>Skill</h5>
                 <div className="row">
                   {getUser.skills.map((item, index) => (

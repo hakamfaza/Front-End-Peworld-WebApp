@@ -10,6 +10,7 @@ import axios from 'axios';
 
 import logo from '../../assets/icon/logo.png';
 import bg from '../../assets/img/agency.jpg';
+import Swal from 'sweetalert2';
 
 export default function register() {
   const router = useRouter();
@@ -46,11 +47,22 @@ export default function register() {
       axios
         .post(`${process.env.NEXT_PUBLIC_API_URL}/register`, body, {})
         .then(res => {
-          console.log(res);
+          res;
+          Swal.fire({
+            icon: 'success',
+            title: 'Sucess register!',
+            showConfirmButton: false,
+            timer: 1800
+          });
           router.push('/login');
         })
         .catch(err => {
-          console.log(err.message);
+          Swal.fire({
+            icon: 'error',
+            title: err.response.data.error,
+            showConfirmButton: false,
+            timer: 1800
+          });
         });
     } else {
       alert('Password not same!');
